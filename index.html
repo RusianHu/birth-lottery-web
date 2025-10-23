@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="投胎模拟器 - 基于真实数据的趣味投胎模拟">
+    <title>投胎模拟器 - Birth Lottery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+</head>
+<body>
+    <!-- 背景动画层 -->
+    <div class="bg-animation">
+        <div class="stars"></div>
+        <div class="clouds"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-icon">✨</span>
+                <span class="title-text">投胎模拟器</span>
+                <span class="title-icon">✨</span>
+            </h1>
+            <p class="subtitle">模拟你的下一把重开</p>
+        </header>
+
+        <!-- 加载状态 -->
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">正在加载全球数据...</p>
+        </div>
+
+        <!-- 主界面 -->
+        <main id="main-content" class="main-content" style="display: none;">
+            <!-- 开始界面 -->
+            <section id="start-screen" class="screen active">
+                <!-- 世界地图容器 -->
+                <div class="world-map-container" id="start-map-container">
+                    <div class="map-header">
+                        <h3 class="map-title">🌍 全球出生概率分布</h3>
+                        <div class="map-controls">
+                            <button class="map-control-btn active" data-scheme="probability">
+                                <i class="fas fa-percentage"></i> 概率
+                            </button>
+                            <button class="map-control-btn" data-scheme="gdp">
+                                <i class="fas fa-dollar-sign"></i> GDP
+                            </button>
+                            <button class="map-control-btn" data-scheme="birthrate">
+                                <i class="fas fa-baby"></i> 出生率
+                            </button>
+                        </div>
+                    </div>
+                    <div id="world-map" class="world-map"></div>
+                    <div class="map-legend">
+                        <span class="legend-label">低</span>
+                        <div class="legend-gradient"></div>
+                        <span class="legend-label">高</span>
+                    </div>
+                </div>
+
+                <div class="welcome-card">
+                    <div class="card-icon">🎲</div>
+                    <h2 class="card-title">准备好模拟重开了吗？</h2>
+                    <p class="card-description">
+                        基于2023年全球出生率数据和2024年人均GDP数据<br>
+                        模拟你的"投胎"结果，看看你会重开到哪
+                    </p>
+                    <div class="stats-preview">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-countries">--</div>
+                            <div class="stat-label">个国家/地区</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-births">--</div>
+                            <div class="stat-label">年出生人数</div>
+                        </div>
+                    </div>
+                    <button id="start-btn" class="btn btn-primary btn-large">
+                        <i class="fas fa-dice"></i>
+                        开始重开
+                    </button>
+                </div>
+            </section>
+
+            <!-- 抽签动画界面 -->
+            <section id="drawing-screen" class="screen">
+                <div class="drawing-container">
+                    <!-- 地图聚焦动画 -->
+                    <div class="drawing-map-container" id="drawing-map-container">
+                        <div id="drawing-map" class="world-map"></div>
+                    </div>
+
+                    <div class="drawing-text">
+                        <p class="drawing-message">命运的齿轮正在转动...</p>
+                        <p class="drawing-country" id="drawing-country-name"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 结果展示界面 -->
+            <section id="result-screen" class="screen">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2 class="result-title">🎊 投胎结果 🎊</h2>
+                        <div class="result-country">
+                            <div class="country-flag" id="country-flag">🏳️</div>
+                            <div class="country-name" id="country-name">--</div>
+                        </div>
+                    </div>
+
+                    <!-- 结果地图 -->
+                    <div class="result-map-container">
+                        <div id="result-map" class="world-map-mini"></div>
+                    </div>
+
+                    <div class="result-body">
+                        <!-- 基础信息 -->
+                        <div class="info-section">
+                            <h3 class="section-title">📍 基础信息</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">地区</span>
+                                    <span class="info-value" id="country-region">--</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">首都</span>
+                                    <span class="info-value" id="country-capital">--</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">收入水平</span>
+                                    <span class="info-value" id="country-income">--</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">人口</span>
+                                    <span class="info-value" id="country-population">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 开局属性 -->
+                        <div class="stats-section">
+                            <h3 class="section-title">🎮 开局属性</h3>
+                            <div class="stat-bars">
+                                <div class="stat-bar-item">
+                                    <div class="stat-bar-header">
+                                        <span class="stat-bar-label">💰 经济指数</span>
+                                        <span class="stat-bar-value" id="gdp-value">--</span>
+                                    </div>
+                                    <div class="stat-bar-bg">
+                                        <div class="stat-bar-fill" id="gdp-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-item">
+                                    <div class="stat-bar-header">
+                                        <span class="stat-bar-label">🎲 出生概率</span>
+                                        <span class="stat-bar-value" id="probability-value">--</span>
+                                    </div>
+                                    <div class="stat-bar-bg">
+                                        <div class="stat-bar-fill" id="probability-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-item">
+                                    <div class="stat-bar-header">
+                                        <span class="stat-bar-label">👶 出生率</span>
+                                        <span class="stat-bar-value" id="birthrate-value">--</span>
+                                    </div>
+                                    <div class="stat-bar-bg">
+                                        <div class="stat-bar-fill" id="birthrate-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 评价 -->
+                        <div class="comment-section">
+                            <div class="comment-box" id="comment-box">
+                                <p class="comment-text" id="comment-text">--</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-footer">
+                        <button id="retry-btn" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            再抽一次
+                        </button>
+                        <button id="share-btn" class="btn btn-primary">
+                            <i class="fas fa-share-alt"></i>
+                            分享结果
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p class="footer-text">
+                数据来源: 
+                <a href="https://data.worldbank.org" target="_blank" rel="noopener">世界银行</a> | 
+                <a href="https://ourworldindata.org" target="_blank" rel="noopener">Our World in Data</a>
+            </p>
+            <p class="footer-note">* 本应用仅供娱乐，数据基于2023-2024年统计</p>
+        </footer>
+    </div>
+
+    <!-- 粒子效果容器 -->
+    <div id="particles"></div>
+
+    <!-- 分享弹窗 -->
+    <div id="share-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>分享结果</h3>
+                <button class="modal-close" id="close-share-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="share-preview" class="share-preview">
+                    <!-- 截图预览区域 -->
+                    <canvas id="share-canvas"></canvas>
+                </div>
+                <div class="share-actions">
+                    <button id="save-image-btn" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        保存图片
+                    </button>
+                    <button id="copy-text-btn" class="btn btn-secondary">
+                        <i class="fas fa-copy"></i>
+                        复制文字
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本 -->
+    <script src="d3.v7.min.js"></script>
+    <script src="topojson.min.js"></script>
+    <script type="module" src="anime.esm.js"></script>
+    <script type="module" src="world-map-d3.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+
