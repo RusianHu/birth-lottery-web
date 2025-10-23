@@ -1078,6 +1078,27 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    /* 允许移动端长按保存 */
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-touch-callout: default;
+    pointer-events: auto;
+}
+
+/* 分享图片容器 - 用于显示转换后的图片 */
+#share-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    /* 允许移动端长按保存 */
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-touch-callout: default;
+    pointer-events: auto;
+    /* 调试：添加边框确认图片存在 */
+    border: 2px solid #4CAF50;
 }
 
 .share-hint {

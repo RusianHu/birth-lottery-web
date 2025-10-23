@@ -42,6 +42,7 @@ const elements = {
     shareModal: document.getElementById('share-modal'),
     closeShareModal: document.getElementById('close-share-modal'),
     shareCanvas: document.getElementById('share-canvas'),
+    shareImage: document.getElementById('share-image'),
     saveImageBtn: document.getElementById('save-image-btn'),
     copyTextBtn: document.getElementById('copy-text-btn')
 };
@@ -757,9 +758,53 @@ async function generateShareImage() {
     // 绘制底部信息
     ctx.fillStyle = '#b2bec3';
     ctx.font = '18px "Microsoft YaHei", sans-serif';
-    ctx.fillText('扫码体验投胎模拟器', width / 2, height - 60);
+    ctx.fillText('体验投胎模拟器', width / 2, height - 60);
+
+    // 将 Canvas 转换为图片显示（移动端长按保存支持更好）
+    convertCanvasToImage();
 
     console.log('分享图片生成完成');
+}
+
+/**
+ * 将 Canvas 转换为 Image 元素显示
+ * 移动端对 img 元素的长按保存支持比 canvas 更好
+ */
+function convertCanvasToImage() {
+    const canvas = elements.shareCanvas;
+    const img = elements.shareImage;
+
+    if (!canvas || !img) {
+        console.error('Canvas 或 Image 元素未找到');
+        return;
+    }
+
+    try {
+        // 将 canvas 转换为 data URL
+        const dataURL = canvas.toDataURL('image/png', 1.0);
+
+        console.log('Canvas 转换成功，尺寸:', canvas.width, 'x', canvas.height);
+
+        // 设置图片源
+        img.src = dataURL;
+
+        // 显示图片，隐藏 canvas
+        canvas.style.display = 'none';
+        img.style.display = 'block';
+
+        console.log('图片已设置并显示，src 长度:', dataURL.length);
+
+        // 等待图片加载完成
+        img.onload = function() {
+            console.log('图片加载完成，自然尺寸:', img.naturalWidth, 'x', img.naturalHeight);
+        };
+
+        img.onerror = function() {
+            console.error('图片加载失败');
+        };
+    } catch (error) {
+        console.error('Canvas 转换失败:', error);
+    }
 }
 
 /**
@@ -783,22 +828,43 @@ function roundRect(ctx, x, y, width, height, radius) {
  * 保存图片
  */
 function saveImage() {
-    const canvas = elements.shareCanvas;
+    const img = elements.shareImage;
 
-    // 转换为blob并下载
-    canvas.toBlob((blob) => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `投胎模拟器-${state.currentResult.name}-${Date.now()}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+    // 从 img 元素获取图片数据
+    const dataURL = img.src;
 
-        // 显示提示
-        showToast('图片已保存！');
-    }, 'image/png');
+    // 将 data URL 转换为 blob
+    fetch(dataURL)
+        .then(res => res.blob())
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+
+            // 根据当前结果类型设置文件名
+            // 优先判断是否是十连抽结果
+            let fileName;
+            if (state.tenDrawResults && state.tenDrawResults.length > 0) {
+                fileName = `投胎模拟器-十连抽-${Date.now()}.png`;
+            } else if (state.currentResult) {
+                fileName = `投胎模拟器-${state.currentResult.name}-${Date.now()}.png`;
+            } else {
+                fileName = `投胎模拟器-${Date.now()}.png`;
+            }
+
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            // 显示提示
+            showToast('图片已保存！');
+        })
+        .catch(err => {
+            console.error('保存图片失败:', err);
+            showToast('保存失败，请长按图片保存');
+        });
 }
 
 /**
@@ -1326,7 +1392,10 @@ async function generateTenDrawShareImage() {
     ctx.fillStyle = '#b2bec3';
     ctx.font = '20px "Microsoft YaHei", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('扫码体验投胎模拟器', width / 2, height - 50);
+    ctx.fillText('体验投胎模拟器', width / 2, height - 50);
+
+    // 将 Canvas 转换为图片显示（移动端长按保存支持更好）
+    convertCanvasToImage();
 
     console.log('十连抽分享图片生成完成');
 }
