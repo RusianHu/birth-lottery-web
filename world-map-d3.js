@@ -620,6 +620,62 @@ export class WorldMapController {
     }
 
     /**
+     * 高亮国家（用于十连抽等多点标记场景）
+     */
+    highlightCountry(iso, options = {}) {
+        let country = this.countries.get(iso);
+
+        // 如果找不到,尝试通过名称查找
+        if (!country) {
+            for (const [key, value] of this.countries.entries()) {
+                if (value.iso2 === iso || value.iso3 === iso || value.numId === iso) {
+                    country = value;
+                    break;
+                }
+            }
+        }
+
+        if (!country || !country.element) {
+            console.warn(`国家 ${iso} 未找到`);
+            return;
+        }
+
+        // 获取统一区域的所有国家
+        const relatedCountries = this.getUnifiedRegionCountries(country.iso2);
+
+        // 高亮所有相关国家
+        relatedCountries.forEach(c => {
+            if (c.element) {
+                d3.select(c.element)
+                    .style('fill', '#ffd700')
+                    .style('stroke', '#ff6b00')
+                    .style('stroke-width', '1.5');
+            }
+        });
+
+        // 如果需要脉动效果
+        if (options.pulse) {
+            const pulseAnimation = () => {
+                relatedCountries.forEach(c => {
+                    if (c.element) {
+                        animate(c.element, {
+                            scale: [1, 1.05, 1],
+                            duration: 1500,
+                            ease: 'inOut(2)',
+                            onComplete: () => {
+                                if (options.pulse) {
+                                    pulseAnimation();
+                                }
+                            }
+                        });
+                    }
+                });
+            };
+            pulseAnimation();
+        }
+    }
+
+    /**
      * 重置视图
      */
     resetView(duration = 1000) {

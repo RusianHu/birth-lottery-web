@@ -9,11 +9,14 @@ import { WorldMapController } from './world-map-d3.js';
 const state = {
     data: null,
     currentResult: null,
+    tenDrawResults: null,
     isDrawing: false,
+    isTenDrawing: false,
     maps: {
         start: null,
         drawing: null,
-        result: null
+        result: null,
+        tenDraw: null
     }
 };
 
@@ -24,12 +27,18 @@ const elements = {
     startScreen: document.getElementById('start-screen'),
     drawingScreen: document.getElementById('drawing-screen'),
     resultScreen: document.getElementById('result-screen'),
+    tenDrawResultScreen: document.getElementById('ten-draw-result-screen'),
     startBtn: document.getElementById('start-btn'),
+    tenDrawBtn: document.getElementById('ten-draw-btn'),
     retryBtn: document.getElementById('retry-btn'),
     shareBtn: document.getElementById('share-btn'),
+    tenDrawRetryBtn: document.getElementById('ten-draw-retry-btn'),
+    tenDrawShareBtn: document.getElementById('ten-draw-share-btn'),
+    backToStartBtn: document.getElementById('back-to-start-btn'),
     totalCountries: document.getElementById('total-countries'),
     totalBirths: document.getElementById('total-births'),
     roulette: document.getElementById('roulette'),
+    tenDrawResults: document.getElementById('ten-draw-results'),
     shareModal: document.getElementById('share-modal'),
     closeShareModal: document.getElementById('close-share-modal'),
     shareCanvas: document.getElementById('share-canvas'),
@@ -165,8 +174,12 @@ function bindMapControls() {
  */
 function bindEvents() {
     elements.startBtn.addEventListener('click', startDrawing);
+    elements.tenDrawBtn.addEventListener('click', startTenDraw);
     elements.retryBtn.addEventListener('click', retry);
     elements.shareBtn.addEventListener('click', share);
+    elements.tenDrawRetryBtn.addEventListener('click', retryTenDraw);
+    elements.tenDrawShareBtn.addEventListener('click', shareTenDraw);
+    elements.backToStartBtn.addEventListener('click', backToStart);
     elements.closeShareModal.addEventListener('click', closeShareModal);
     elements.saveImageBtn.addEventListener('click', saveImage);
     elements.copyTextBtn.addEventListener('click', copyText);
@@ -933,6 +946,389 @@ function animateCardEntrance(card) {
         duration: 800,
         ease: 'outElastic(1)'
     });
+}
+
+/**
+ * ==================== 十连抽功能 ====================
+ */
+
+/**
+ * 开始十连抽
+ */
+function startTenDraw() {
+    if (state.isTenDrawing) return;
+    state.isTenDrawing = true;
+
+    // 切换到抽签界面（复用抽签界面显示进度）
+    switchScreen(elements.startScreen, elements.drawingScreen);
+
+    // 执行十连抽
+    performTenDraw();
+}
+
+/**
+ * 执行十连抽
+ */
+async function performTenDraw() {
+    // 执行10次抽签
+    const results = [];
+    for (let i = 0; i < 10; i++) {
+        const result = drawCountry();
+        results.push({
+            ...result,
+            rank: i + 1
+        });
+    }
+
+    state.tenDrawResults = results;
+
+    // 初始化抽签地图
+    state.maps.drawing = new WorldMapController('drawing-map', {
+        interactive: false,
+        showTooltip: false
+    });
+
+    // 等待地图加载
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // 绑定数据
+    state.maps.drawing.bindData(state.data);
+
+    // 显示提示文字
+    const countryNameEl = document.getElementById('drawing-country-name');
+    countryNameEl.textContent = '正在抽取十连...';
+    countryNameEl.classList.add('show');
+
+    // 延迟后显示结果
+    setTimeout(() => {
+        showTenDrawResults(results);
+    }, 2000);
+}
+
+/**
+ * 显示十连抽结果
+ */
+async function showTenDrawResults(results) {
+    // 切换到十连抽结果界面
+    switchScreen(elements.drawingScreen, elements.tenDrawResultScreen);
+
+    // 清空之前的结果
+    elements.tenDrawResults.innerHTML = '';
+
+    // 初始化十连抽地图
+    state.maps.tenDraw = new WorldMapController('ten-draw-map', {
+        interactive: true,
+        showTooltip: true
+    });
+
+    // 等待地图加载
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // 绑定数据
+    state.maps.tenDraw.bindData(state.data);
+
+    // 在地图上标记所有结果
+    results.forEach((result, index) => {
+        const iso = result.iso2 || result.iso || result.code;
+        if (state.maps.tenDraw && iso) {
+            // 高亮国家
+            setTimeout(() => {
+                state.maps.tenDraw.highlightCountry(iso, { pulse: false });
+            }, index * 100);
+        }
+    });
+
+    // 生成结果卡片（带动画）
+    results.forEach((result, index) => {
+        setTimeout(() => {
+            const card = createTenDrawResultCard(result, index);
+            elements.tenDrawResults.appendChild(card);
+
+            // 添加入场动画
+            animate(card, {
+                opacity: [0, 1],
+                y: [30, 0],
+                duration: 500,
+                ease: 'out(3)'
+            });
+        }, index * 150);
+    });
+
+    // 重置状态
+    state.isTenDrawing = false;
+}
+
+/**
+ * 创建十连抽结果卡片
+ */
+function createTenDrawResultCard(result, index) {
+    const card = document.createElement('div');
+    card.className = 'ten-draw-result-card';
+
+    const flagEmoji = getFlagEmoji(result.iso2);
+
+    card.innerHTML = `
+        <div class="ten-draw-result-rank">#${result.rank}</div>
+        <div class="ten-draw-result-flag">${flagEmoji}</div>
+        <div class="ten-draw-result-name">${result.name}</div>
+        <div class="ten-draw-result-stats">
+            <div class="ten-draw-result-stat">
+                <span class="ten-draw-result-stat-label">💰 人均GDP</span>
+                <span class="ten-draw-result-stat-value">$${formatNumber(result.gdpPerCapita)}</span>
+            </div>
+            <div class="ten-draw-result-stat">
+                <span class="ten-draw-result-stat-label">🎯 出生概率</span>
+                <span class="ten-draw-result-stat-value">${result.probability.toFixed(4)}%</span>
+            </div>
+            <div class="ten-draw-result-stat">
+                <span class="ten-draw-result-stat-label">👶 出生率</span>
+                <span class="ten-draw-result-stat-value">${result.birthRate}‰</span>
+            </div>
+            <div class="ten-draw-result-stat">
+                <span class="ten-draw-result-stat-label">🌍 地区</span>
+                <span class="ten-draw-result-stat-value">${result.region || '未知'}</span>
+            </div>
+        </div>
+    `;
+
+    // 点击卡片聚焦到对应国家
+    card.addEventListener('click', () => {
+        const iso = result.iso2 || result.iso || result.code;
+        if (state.maps.tenDraw && iso) {
+            state.maps.tenDraw.focusCountry(iso, {
+                duration: 1500,
+                zoom: 4
+            });
+        }
+    });
+
+    return card;
+}
+
+/**
+ * 再抽十连
+ */
+function retryTenDraw() {
+    // 清理地图
+    if (state.maps.drawing) {
+        state.maps.drawing.destroy();
+        state.maps.drawing = null;
+    }
+    if (state.maps.tenDraw) {
+        state.maps.tenDraw.destroy();
+        state.maps.tenDraw = null;
+    }
+
+    // 重置开始地图视图
+    if (state.maps.start) {
+        state.maps.start.resetView();
+    }
+
+    // 隐藏国家名称
+    const countryNameEl = document.getElementById('drawing-country-name');
+    if (countryNameEl) {
+        countryNameEl.classList.remove('show');
+        countryNameEl.textContent = '';
+    }
+
+    // 重新开始十连抽
+    switchScreen(elements.tenDrawResultScreen, elements.startScreen);
+
+    // 延迟后自动开始
+    setTimeout(() => {
+        startTenDraw();
+    }, 500);
+}
+
+/**
+ * 返回首页
+ */
+function backToStart() {
+    // 清理地图
+    if (state.maps.drawing) {
+        state.maps.drawing.destroy();
+        state.maps.drawing = null;
+    }
+    if (state.maps.tenDraw) {
+        state.maps.tenDraw.destroy();
+        state.maps.tenDraw = null;
+    }
+
+    // 重置开始地图视图
+    if (state.maps.start) {
+        state.maps.start.resetView();
+    }
+
+    // 隐藏国家名称
+    const countryNameEl = document.getElementById('drawing-country-name');
+    if (countryNameEl) {
+        countryNameEl.classList.remove('show');
+        countryNameEl.textContent = '';
+    }
+
+    // 切换回开始界面
+    switchScreen(elements.tenDrawResultScreen, elements.startScreen);
+}
+
+/**
+ * 分享十连抽结果
+ */
+async function shareTenDraw() {
+    if (!state.tenDrawResults) return;
+
+    // 显示分享弹窗
+    elements.shareModal.classList.add('active');
+
+    // 添加弹窗动画
+    animate(elements.shareModal.querySelector('.modal-content'), {
+        scale: [0.9, 1],
+        opacity: [0, 1],
+        duration: 400,
+        ease: 'out(3)'
+    });
+
+    // 生成十连抽分享图片
+    await generateTenDrawShareImage();
+}
+
+/**
+ * 生成十连抽分享图片
+ */
+async function generateTenDrawShareImage() {
+    const canvas = elements.shareCanvas;
+    const ctx = canvas.getContext('2d');
+
+    // 设置画布尺寸（更大以容纳10个结果）
+    const width = 1200;
+    const height = 1600;
+    canvas.width = width;
+    canvas.height = height;
+
+    // 绘制背景渐变
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, '#667eea');
+    gradient.addColorStop(1, '#764ba2');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // 绘制装饰图案
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    for (let i = 0; i < 30; i++) {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
+        const radius = Math.random() * 30 + 10;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // 绘制白色卡片背景
+    const cardPadding = 40;
+    const cardY = 60;
+    const cardHeight = height - 120;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+    ctx.shadowBlur = 20;
+    ctx.shadowOffsetY = 10;
+    roundRect(ctx, cardPadding, cardY, width - cardPadding * 2, cardHeight, 20);
+    ctx.fill();
+    ctx.shadowColor = 'transparent';
+
+    // 绘制标题
+    ctx.fillStyle = '#ff6b9d';
+    ctx.font = 'bold 56px "Microsoft YaHei", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('🎰 投胎模拟器 - 十连抽', width / 2, 140);
+
+    // 绘制副标题
+    ctx.fillStyle = '#636e72';
+    ctx.font = '28px "Microsoft YaHei", sans-serif';
+    ctx.fillText('我的十连抽结果', width / 2, 190);
+
+    // 绘制分隔线
+    ctx.strokeStyle = 'rgba(102, 126, 234, 0.3)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(100, 220);
+    ctx.lineTo(width - 100, 220);
+    ctx.stroke();
+
+    // 绘制10个结果（2列5行）
+    const results = state.tenDrawResults;
+    const cols = 2;
+    const rows = 5;
+    const resultCardWidth = (width - cardPadding * 2 - 60) / cols;
+    const resultCardHeight = (height - 280 - cardPadding) / rows;
+    const startX = cardPadding + 30;
+    const startY = 250;
+
+    for (let i = 0; i < results.length; i++) {
+        const result = results[i];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const x = startX + col * resultCardWidth;
+        const y = startY + row * resultCardHeight;
+
+        // 绘制排名徽章
+        ctx.fillStyle = '#ff6b9d';
+        ctx.beginPath();
+        ctx.arc(x + 30, y + 30, 20, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 18px "Microsoft YaHei", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${i + 1}`, x + 30, y + 37);
+
+        // 绘制国旗
+        const flagEmoji = getFlagEmoji(result.iso2);
+        ctx.font = '48px Arial';
+        ctx.fillText(flagEmoji, x + resultCardWidth / 2, y + 80);
+
+        // 绘制国家名称
+        ctx.fillStyle = '#2d3436';
+        ctx.font = 'bold 22px "Microsoft YaHei", sans-serif';
+        ctx.textAlign = 'center';
+
+        // 处理长国家名称
+        const name = result.name;
+        if (ctx.measureText(name).width > resultCardWidth - 40) {
+            const shortName = name.length > 10 ? name.substring(0, 10) + '...' : name;
+            ctx.fillText(shortName, x + resultCardWidth / 2, y + 120);
+        } else {
+            ctx.fillText(name, x + resultCardWidth / 2, y + 120);
+        }
+
+        // 绘制关键数据
+        ctx.font = '16px "Microsoft YaHei", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#636e72';
+
+        const dataY = y + 150;
+        const lineHeight = 24;
+
+        // GDP
+        ctx.fillText('💰', x + 20, dataY);
+        ctx.fillStyle = '#2d3436';
+        ctx.font = 'bold 15px "Microsoft YaHei", sans-serif';
+        const gdpText = `$${formatNumber(result.gdpPerCapita)}`;
+        ctx.fillText(gdpText.length > 12 ? gdpText.substring(0, 12) : gdpText, x + 45, dataY);
+
+        // 概率
+        ctx.fillStyle = '#636e72';
+        ctx.font = '16px "Microsoft YaHei", sans-serif';
+        ctx.fillText('🎯', x + 20, dataY + lineHeight);
+        ctx.fillStyle = '#2d3436';
+        ctx.font = 'bold 15px "Microsoft YaHei", sans-serif';
+        ctx.fillText(`${result.probability.toFixed(3)}%`, x + 45, dataY + lineHeight);
+    }
+
+    // 绘制底部信息
+    ctx.fillStyle = '#b2bec3';
+    ctx.font = '20px "Microsoft YaHei", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('扫码体验投胎模拟器', width / 2, height - 50);
+
+    console.log('十连抽分享图片生成完成');
 }
 
 // 启动应用

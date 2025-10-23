@@ -77,10 +77,16 @@
                         基于2023年全球出生率数据和2024年人均GDP数据<br>
                         模拟你的"投胎"结果，看看你会重开到哪
                     </p>
-                    <button id="start-btn" class="btn btn-primary btn-large">
-                        <span class="btn-text">开始重开</span>
-                        <span class="btn-glow"></span>
-                    </button>
+                    <div class="button-group">
+                        <button id="start-btn" class="btn btn-primary btn-large">
+                            <span class="btn-text">开始重开</span>
+                            <span class="btn-glow"></span>
+                        </button>
+                        <button id="ten-draw-btn" class="btn btn-accent btn-large">
+                            <span class="btn-text">🎰 重开十连抽</span>
+                            <span class="btn-glow"></span>
+                        </button>
+                    </div>
                     <div class="stats-preview">
                         <div class="stat-item">
                             <div class="stat-value" id="total-countries">--</div>
@@ -105,6 +111,41 @@
                     <div class="drawing-text">
                         <p class="drawing-message">命运的齿轮正在转动...</p>
                         <p class="drawing-country" id="drawing-country-name"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 十连抽结果展示界面 -->
+            <section id="ten-draw-result-screen" class="screen">
+                <div class="ten-draw-container">
+                    <div class="ten-draw-header">
+                        <h2 class="ten-draw-title">🎰 十连抽结果 🎰</h2>
+                        <p class="ten-draw-subtitle">查看你的10次重开投掷</p>
+                    </div>
+
+                    <!-- 十连抽地图 -->
+                    <div class="ten-draw-map-container">
+                        <div id="ten-draw-map" class="world-map-mini"></div>
+                    </div>
+
+                    <!-- 结果列表 -->
+                    <div class="ten-draw-results" id="ten-draw-results">
+                        <!-- 动态生成的结果卡片 -->
+                    </div>
+
+                    <div class="ten-draw-footer">
+                        <button id="ten-draw-retry-btn" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            再抽十连
+                        </button>
+                        <button id="ten-draw-share-btn" class="btn btn-primary">
+                            <i class="fas fa-share-alt"></i>
+                            分享结果
+                        </button>
+                        <button id="back-to-start-btn" class="btn btn-secondary">
+                            <i class="fas fa-home"></i>
+                            返回首页
+                        </button>
                     </div>
                 </div>
             </section>
