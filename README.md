@@ -6,6 +6,8 @@
 
 一个基于真实数据的趣味投胎（模拟重开）模拟网站应用
 
+<img width="1189" height="1275" alt="image" src="https://github.com/user-attachments/assets/63a3d48b-3d1b-47a6-910c-f574f299e3bf" />
+
 ## 🚀 快速开始
 
 ### 安装方式
@@ -103,48 +105,6 @@ extension=mbstring
 
 ```php
 $cacheTime = 86400; // 秒数，86400 = 24小时
-```
-
-## 🐛 故障排除
-
-### 数据加载失败
-
-1. 检查 PHP 扩展是否已启用（访问 `test_api.php`）
-2. 检查网络连接
-3. 查看 PHP 错误日志
-4. 删除 `data_cache.json` 重新获取数据
-
-### 动画不流畅
-
-1. 检查浏览器是否支持 ES6 模块
-2. 确认 `anime.esm.js` 文件完整
-3. 尝试使用现代浏览器（Chrome, Firefox, Edge）
-
-### 样式显示异常
-
-1. 清除浏览器缓存
-2. 检查 `style.css` 文件是否正确加载
-3. 确认浏览器支持 CSS Grid 和 Flexbox
-
-## 📝 开发说明
-
-### 添加新功能
-
-1. 修改 `app.js` 添加新的交互逻辑
-2. 更新 `style.css` 添加新的样式
-3. 使用 anime.js 添加动画效果
-
-### 自定义样式
-
-主要颜色变量定义在 `style.css` 的 `:root` 中：
-
-```css
-:root {
-    --primary-color: #ff6b9d;
-    --secondary-color: #c44569;
-    --accent-color: #ffa502;
-    /* ... */
-}
 ```
 
 ## 📄 许可证
