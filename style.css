@@ -277,6 +277,68 @@ body {
     font-size: 1.3rem;
     width: 100%;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 开始重开按钮特效 */
+#start-btn {
+    position: relative;
+    overflow: visible;
+    margin: 30px 0;
+}
+
+#start-btn .btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+#start-btn .btn-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: scale(0);
+    transform-origin: center center;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#start-btn::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg,
+        hsl(var(--glow-hue, 330), 80%, 65%),
+        hsl(calc(var(--glow-hue, 330) + 60), 80%, 65%),
+        hsl(calc(var(--glow-hue, 330) + 120), 80%, 65%),
+        hsl(calc(var(--glow-hue, 330) + 180), 80%, 65%));
+    background-size: 400% 400%;
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.3s ease;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+#start-btn:hover::before {
+    opacity: 0.8;
 }
 
 /* ==================== 抽签动画 ==================== */

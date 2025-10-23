@@ -177,6 +177,111 @@ function bindEvents() {
             closeShareModal();
         }
     });
+
+    // 初始化开始按钮特效
+    initStartButtonAnimation();
+}
+
+/**
+ * 初始化开始按钮动画特效
+ */
+function initStartButtonAnimation() {
+    const btn = elements.startBtn;
+    const btnGlow = btn.querySelector('.btn-glow');
+
+    // 轻柔的悬浮动画
+    animate(btn, {
+        y: [-5, 5],
+        duration: 3000,
+        ease: 'inOut(2)',
+        loop: true,
+        alternate: true
+    });
+
+    // 轻微的缩放脉冲
+    animate(btn, {
+        scale: [1, 1.03, 1],
+        duration: 2000,
+        ease: 'inOut(3)',
+        loop: true
+    });
+
+    // 光晕脉冲效果
+    animate(btnGlow, {
+        scale: [0, 1.8],
+        opacity: [0.6, 0],
+        duration: 2500,
+        ease: 'out(3)',
+        loop: true
+    });
+
+    // 鼠标悬停时的额外效果
+    btn.addEventListener('mouseenter', () => {
+        animate(btn, {
+            scale: 1.08,
+            duration: 400,
+            ease: 'out(3)'
+        });
+
+        // 触发一次强烈的光晕
+        animate(btnGlow, {
+            scale: [0, 2.2],
+            opacity: [0.9, 0],
+            duration: 800,
+            ease: 'out(3)'
+        });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        animate(btn, {
+            scale: 1,
+            duration: 400,
+            ease: 'out(3)'
+        });
+    });
+
+    // 点击时的特效
+    btn.addEventListener('mousedown', () => {
+        animate(btn, {
+            scale: 0.96,
+            duration: 100,
+            ease: 'out(2)'
+        });
+
+        // 点击时的爆发光晕
+        animate(btnGlow, {
+            scale: [0, 3],
+            opacity: [1, 0],
+            duration: 500,
+            ease: 'out(4)'
+        });
+    });
+
+    btn.addEventListener('mouseup', () => {
+        animate(btn, {
+            scale: 1.08,
+            duration: 200,
+            ease: 'out(3)'
+        });
+    });
+
+    // 添加随机的闪烁效果
+    setInterval(() => {
+        if (Math.random() > 0.7) {
+            animate(btn, {
+                opacity: [1, 0.85, 1],
+                duration: 400,
+                ease: 'inOut(2)'
+            });
+        }
+    }, 4000);
+
+    // 彩虹光晕动画（通过CSS变量控制）
+    let hue = 0;
+    setInterval(() => {
+        hue = (hue + 2) % 360;
+        btn.style.setProperty('--glow-hue', hue);
+    }, 50);
 }
 
 /**
