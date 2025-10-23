@@ -1,302 +1,14 @@
 {
     "success": true,
-    "timestamp": 1761192573,
+    "timestamp": 1761204224,
     "dataYear": {
         "birthRate": 2023,
         "population": 2023,
         "gdp": 2024
     },
-    "totalCountries": 261,
-    "totalBirths": 1416227932,
+    "totalCountries": 204,
+    "totalBirths": 126076630,
     "countries": [
-        {
-            "id": "WLD",
-            "name": "World",
-            "iso2": "1W",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 16.33,
-            "population": 8064976601,
-            "gdpPerCapita": 13663.99,
-            "births": 131723366,
-            "weight": 131723366.24495862,
-            "probability": 9.301
-        },
-        {
-            "id": "IBT",
-            "name": "IDA & IBRD total",
-            "iso2": "ZT",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 17.58,
-            "population": 6858864199,
-            "gdpPerCapita": 6340.63,
-            "births": 120598066,
-            "weight": 120598066.2330561,
-            "probability": 8.515442
-        },
-        {
-            "id": "LMY",
-            "name": "Low & middle income",
-            "iso2": "XO",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 17.62,
-            "population": 6499219471,
-            "gdpPerCapita": 5974.8,
-            "births": 114521581,
-            "weight": 114521580.9421732,
-            "probability": 8.086381
-        },
-        {
-            "id": "MIC",
-            "name": "Middle income",
-            "iso2": "XP",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 15.84,
-            "population": 5891444768,
-            "gdpPerCapita": 6524.26,
-            "births": 93341250,
-            "weight": 93341250.38079688,
-            "probability": 6.590835
-        },
-        {
-            "id": "EAR",
-            "name": "Early-demographic dividend",
-            "iso2": "V2",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 18.56,
-            "population": 3511607650,
-            "gdpPerCapita": 4510.25,
-            "births": 65179593,
-            "weight": 65179593.20366413,
-            "probability": 4.602338
-        },
-        {
-            "id": "IBD",
-            "name": "IBRD only",
-            "iso2": "XF",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 12.77,
-            "population": 4952554878,
-            "gdpPerCapita": 8253.92,
-            "births": 63234265,
-            "weight": 63234265.14843316,
-            "probability": 4.464978
-        },
-        {
-            "id": "IDA",
-            "name": "IDA total",
-            "iso2": "XG",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 30.09,
-            "population": 1906309321,
-            "gdpPerCapita": 1441.91,
-            "births": 57363801,
-            "weight": 57363801.08462302,
-            "probability": 4.050464
-        },
-        {
-            "id": "SSF",
-            "name": "Sub-Saharan Africa ",
-            "iso2": "ZG",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 33.16,
-            "population": 1259902353,
-            "gdpPerCapita": 1441.32,
-            "births": 41774807,
-            "weight": 41774806.86080997,
-            "probability": 2.949723
-        },
-        {
-            "id": "TSS",
-            "name": "Sub-Saharan Africa (IDA & IBRD countries)",
-            "iso2": "T6",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 33.16,
-            "population": 1259902353,
-            "gdpPerCapita": 1441.32,
-            "births": 41774807,
-            "weight": 41774806.86080997,
-            "probability": 2.949723
-        },
-        {
-            "id": "SSA",
-            "name": "Sub-Saharan Africa (excluding high income)",
-            "iso2": "ZF",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 33.3,
-            "population": 1131090888,
-            "gdpPerCapita": 1506.23,
-            "births": 37667599,
-            "weight": 37667598.76193403,
-            "probability": 2.659713
-        },
-        {
-            "id": "IDX",
-            "name": "IDA only",
-            "iso2": "XI",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 30.22,
-            "population": 1241913429,
-            "gdpPerCapita": 1387.93,
-            "births": 37525585,
-            "weight": 37525584.58499107,
-            "probability": 2.649685
-        },
-        {
-            "id": "PRE",
-            "name": "Pre-demographic dividend",
-            "iso2": "V1",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 34.35,
-            "population": 1078224044,
-            "gdpPerCapita": 1290.2,
-            "births": 37040667,
-            "weight": 37040666.59436998,
-            "probability": 2.615445
-        },
-        {
-            "id": "LDC",
-            "name": "Least developed countries: UN classification",
-            "iso2": "XL",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 31.37,
-            "population": 1160824674,
-            "gdpPerCapita": 1258.94,
-            "births": 36416864,
-            "weight": 36416864.44548299,
-            "probability": 2.571399
-        },
-        {
-            "id": "FCS",
-            "name": "Fragile and conflict affected situations",
-            "iso2": "F1",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 31.4,
-            "population": 1057033168,
-            "gdpPerCapita": 1571.8,
-            "births": 33188327,
-            "weight": 33188326.695625998,
-            "probability": 2.343431
-        },
-        {
-            "id": "HPC",
-            "name": "Heavily indebted poor countries (HIPC)",
-            "iso2": "XE",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 34.2,
-            "population": 917304254,
-            "gdpPerCapita": 1202.77,
-            "births": 31374380,
-            "weight": 31374379.82828802,
-            "probability": 2.215348
-        },
-        {
-            "id": "SAS",
-            "name": "South Asia",
-            "iso2": "8S",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 16.57,
-            "population": 1662580579,
-            "gdpPerCapita": 2691.65,
-            "births": 27545801,
-            "weight": 27545800.97439301,
-            "probability": 1.945012
-        },
-        {
-            "id": "TSA",
-            "name": "South Asia (IDA & IBRD)",
-            "iso2": "T5",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 16.57,
-            "population": 1662580579,
-            "gdpPerCapita": 2691.65,
-            "births": 27545801,
-            "weight": 27545800.97439301,
-            "probability": 1.945012
-        },
-        {
-            "id": "AFE",
-            "name": "Africa Eastern and Southern",
-            "iso2": "ZH",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 32.95,
-            "population": 750503764,
-            "gdpPerCapita": 1567.64,
-            "births": 24732785,
-            "weight": 24732785.200721007,
-            "probability": 1.746385
-        },
         {
             "id": "IND",
             "name": "India",
@@ -311,247 +23,7 @@
             "gdpPerCapita": 2696.66,
             "births": 23219072,
             "weight": 23219071.697016004,
-            "probability": 1.639501
-        },
-        {
-            "id": "EAS",
-            "name": "East Asia & Pacific",
-            "iso2": "Z4",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 9.02,
-            "population": 2384479340,
-            "gdpPerCapita": 13349.08,
-            "births": 21496346,
-            "weight": 21496345.674782004,
-            "probability": 1.517859
-        },
-        {
-            "id": "EAP",
-            "name": "East Asia & Pacific (excluding high income)",
-            "iso2": "4E",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 9.33,
-            "population": 2137527754,
-            "gdpPerCapita": 10396.83,
-            "births": 19937058,
-            "weight": 19937058.008987997,
-            "probability": 1.407758
-        },
-        {
-            "id": "IDB",
-            "name": "IDA blend",
-            "iso2": "XH",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 29.86,
-            "population": 664395892,
-            "gdpPerCapita": 1565.84,
-            "births": 19838216,
-            "weight": 19838216.499631982,
-            "probability": 1.400779
-        },
-        {
-            "id": "LTE",
-            "name": "Late-demographic dividend",
-            "iso2": "V3",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.44,
-            "population": 2326636900,
-            "gdpPerCapita": 12843.33,
-            "births": 19643065,
-            "weight": 19643064.70977124,
-            "probability": 1.386999
-        },
-        {
-            "id": "TEA",
-            "name": "East Asia & Pacific (IDA & IBRD countries)",
-            "iso2": "T4",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 9.28,
-            "population": 2111139152,
-            "gdpPerCapita": 10513.98,
-            "births": 19595518,
-            "weight": 19595517.564794004,
-            "probability": 1.383642
-        },
-        {
-            "id": "MEA",
-            "name": "Middle East, North Africa, Afghanistan & Pakistan",
-            "iso2": "ZQ",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 22.99,
-            "population": 797801454,
-            "gdpPerCapita": 6180.86,
-            "births": 18343545,
-            "weight": 18343544.542393204,
-            "probability": 1.29524
-        },
-        {
-            "id": "MNA",
-            "name": "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)",
-            "iso2": "XQ",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 23.75,
-            "population": 729077445,
-            "gdpPerCapita": 2903.6,
-            "births": 17319142,
-            "weight": 17319142.173500974,
-            "probability": 1.222906
-        },
-        {
-            "id": "TMN",
-            "name": "Middle East, North Africa, Afghanistan & Pakistan (IDA & IBRD)",
-            "iso2": "T3",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 23.73,
-            "population": 723911670,
-            "gdpPerCapita": 2905.83,
-            "births": 17179346,
-            "weight": 17179345.970450994,
-            "probability": 1.213035
-        },
-        {
-            "id": "AFW",
-            "name": "Africa Western and Central",
-            "iso2": "ZI",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 33.46,
-            "population": 509398589,
-            "gdpPerCapita": 1284.15,
-            "births": 17042022,
-            "weight": 17042021.660089,
-            "probability": 1.203339
-        },
-        {
-            "id": "OED",
-            "name": "OECD members",
-            "iso2": "OE",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 9.81,
-            "population": 1388472514,
-            "gdpPerCapita": 48454.7,
-            "births": 13621134,
-            "weight": 13621134.236133998,
-            "probability": 0.96179
-        },
-        {
-            "id": "ARB",
-            "name": "Arab World",
-            "iso2": "1A",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 23.44,
-            "population": 482105978,
-            "gdpPerCapita": 7521.15,
-            "births": 11299312,
-            "weight": 11299311.625015242,
-            "probability": 0.797846
-        },
-        {
-            "id": "PST",
-            "name": "Post-demographic dividend",
-            "iso2": "V4",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.63,
-            "population": 1121892872,
-            "gdpPerCapita": 55865.79,
-            "births": 9683743,
-            "weight": 9683742.808931997,
-            "probability": 0.68377
-        },
-        {
-            "id": "LCN",
-            "name": "Latin America & Caribbean ",
-            "iso2": "ZJ",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 14.2,
-            "population": 657617663,
-            "gdpPerCapita": 11044.68,
-            "births": 9336773,
-            "weight": 9336772.839434026,
-            "probability": 0.65927
-        },
-        {
-            "id": "ECS",
-            "name": "Europe & Central Asia",
-            "iso2": "Z7",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 10.01,
-            "population": 925640799,
-            "gdpPerCapita": 31392.58,
-            "births": 9269013,
-            "weight": 9269013.462137958,
-            "probability": 0.654486
-        },
-        {
-            "id": "TLA",
-            "name": "Latin America & the Caribbean (IDA & IBRD countries)",
-            "iso2": "T2",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 14.34,
-            "population": 642397939,
-            "gdpPerCapita": 10784.32,
-            "births": 9212151,
-            "weight": 9212150.774663994,
-            "probability": 0.650471
+            "probability": 18.416634
         },
         {
             "id": "CHN",
@@ -567,23 +39,7 @@
             "gdpPerCapita": 13303.15,
             "births": 9014437,
             "weight": 9014436.9,
-            "probability": 0.63651
-        },
-        {
-            "id": "LAC",
-            "name": "Latin America & Caribbean (excluding high income)",
-            "iso2": "XJ",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 14.43,
-            "population": 589889543,
-            "gdpPerCapita": 10344.67,
-            "births": 8511814,
-            "weight": 8511813.995813001,
-            "probability": 0.60102
+            "probability": 7.149967
         },
         {
             "id": "NGA",
@@ -599,7 +55,7 @@
             "gdpPerCapita": 806.95,
             "births": 7509655,
             "weight": 7509654.56953,
-            "probability": 0.530257
+            "probability": 5.956421
         },
         {
             "id": "PAK",
@@ -615,23 +71,7 @@
             "gdpPerCapita": 1484.75,
             "births": 6882110,
             "weight": 6882109.98797,
-            "probability": 0.485946
-        },
-        {
-            "id": "TEC",
-            "name": "Europe & Central Asia (IDA & IBRD countries)",
-            "iso2": "T7",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 11.53,
-            "population": 458932506,
-            "gdpPerCapita": 13257.57,
-            "births": 5290444,
-            "weight": 5290444.0879439805,
-            "probability": 0.373559
+            "probability": 5.458672
         },
         {
             "id": "IDN",
@@ -647,7 +87,7 @@
             "gdpPerCapita": 4925.43,
             "births": 4482451,
             "weight": 4482450.858047,
-            "probability": 0.316506
+            "probability": 3.555338
         },
         {
             "id": "COD",
@@ -663,7 +103,7 @@
             "gdpPerCapita": 647.44,
             "births": 4369645,
             "weight": 4369644.838955,
-            "probability": 0.308541
+            "probability": 3.465864
         },
         {
             "id": "ETH",
@@ -679,39 +119,7 @@
             "gdpPerCapita": 0,
             "births": 4105651,
             "weight": 4105651.049876,
-            "probability": 0.2899
-        },
-        {
-            "id": "NAC",
-            "name": "North America",
-            "iso2": "XU",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 10.5,
-            "population": 376954413,
-            "gdpPerCapita": 82406.48,
-            "births": 3957082,
-            "weight": 3957081.8910079813,
-            "probability": 0.27941
-        },
-        {
-            "id": "EUU",
-            "name": "European Union",
-            "iso2": "EU",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.16,
-            "population": 449425965,
-            "gdpPerCapita": 43145.16,
-            "births": 3668410,
-            "weight": 3668410.266124001,
-            "probability": 0.259027
+            "probability": 3.256473
         },
         {
             "id": "USA",
@@ -727,23 +135,7 @@
             "gdpPerCapita": 85809.9,
             "births": 3603827,
             "weight": 3603826.6717,
-            "probability": 0.254467
-        },
-        {
-            "id": "ECA",
-            "name": "Europe & Central Asia (excluding high income)",
-            "iso2": "7E",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 14.21,
-            "population": 249053262,
-            "gdpPerCapita": 9668.56,
-            "births": 3540167,
-            "weight": 3540167.0275440007,
-            "probability": 0.249972
+            "probability": 2.858441
         },
         {
             "id": "BGD",
@@ -759,23 +151,7 @@
             "gdpPerCapita": 2593.42,
             "births": 3489868,
             "weight": 3489867.64747,
-            "probability": 0.24642
-        },
-        {
-            "id": "EMU",
-            "name": "Euro area",
-            "iso2": "XC",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.14,
-            "population": 350292725,
-            "gdpPerCapita": 46724.36,
-            "births": 2850743,
-            "weight": 2850743.0337239993,
-            "probability": 0.201291
+            "probability": 2.768053
         },
         {
             "id": "BRA",
@@ -791,23 +167,7 @@
             "gdpPerCapita": 10280.31,
             "births": 2601676,
             "weight": 2601676.062738,
-            "probability": 0.183705
-        },
-        {
-            "id": "EGY",
-            "name": "Egypt, Arab Rep.",
-            "iso2": "EG",
-            "region": "Middle East, North Africa, Afghanistan & Pakistan",
-            "incomeLevel": "Lower middle income",
-            "capital": "Cairo",
-            "longitude": "31.2461",
-            "latitude": "30.0982",
-            "birthRate": 21,
-            "population": 114535772,
-            "gdpPerCapita": 3338.47,
-            "births": 2405709,
-            "weight": 2405709.355088,
-            "probability": 0.169867
+            "probability": 2.063567
         },
         {
             "id": "TZA",
@@ -823,7 +183,7 @@
             "gdpPerCapita": 1185.75,
             "births": 2346405,
             "weight": 2346405.3185320003,
-            "probability": 0.16568
+            "probability": 1.861095
         },
         {
             "id": "MEX",
@@ -839,7 +199,7 @@
             "gdpPerCapita": 14157.94,
             "births": 2037693,
             "weight": 2037692.6548539998,
-            "probability": 0.143882
+            "probability": 1.616233
         },
         {
             "id": "PHL",
@@ -855,7 +215,7 @@
             "gdpPerCapita": 3984.83,
             "births": 1840442,
             "weight": 1840442.1167809998,
-            "probability": 0.129954
+            "probability": 1.459781
         },
         {
             "id": "UGA",
@@ -871,7 +231,7 @@
             "gdpPerCapita": 1072.71,
             "births": 1712761,
             "weight": 1712761.0118010002,
-            "probability": 0.120938
+            "probability": 1.358508
         },
         {
             "id": "SDN",
@@ -887,7 +247,7 @@
             "gdpPerCapita": 989.31,
             "births": 1682038,
             "weight": 1682038.291092,
-            "probability": 0.118769
+            "probability": 1.33414
         },
         {
             "id": "KEN",
@@ -903,7 +263,7 @@
             "gdpPerCapita": 2206.13,
             "births": 1500019,
             "weight": 1500019.015318,
-            "probability": 0.105916
+            "probability": 1.189768
         },
         {
             "id": "AFG",
@@ -919,7 +279,7 @@
             "gdpPerCapita": 0,
             "births": 1469032,
             "weight": 1469032.3655569998,
-            "probability": 0.103729
+            "probability": 1.16519
         },
         {
             "id": "VNM",
@@ -935,7 +295,7 @@
             "gdpPerCapita": 4717.29,
             "births": 1387971,
             "weight": 1387971.1675520001,
-            "probability": 0.098005
+            "probability": 1.100895
         },
         {
             "id": "YEM",
@@ -951,7 +311,7 @@
             "gdpPerCapita": 0,
             "births": 1386911,
             "weight": 1386910.6419910002,
-            "probability": 0.09793
+            "probability": 1.100054
         },
         {
             "id": "AGO",
@@ -967,7 +327,7 @@
             "gdpPerCapita": 2122.08,
             "births": 1381355,
             "weight": 1381355.466728,
-            "probability": 0.097538
+            "probability": 1.095648
         },
         {
             "id": "MOZ",
@@ -983,7 +343,7 @@
             "gdpPerCapita": 647.29,
             "births": 1260848,
             "weight": 1260847.60776,
-            "probability": 0.089029
+            "probability": 1.000064
         },
         {
             "id": "RUS",
@@ -999,23 +359,7 @@
             "gdpPerCapita": 14889.02,
             "births": 1236905,
             "weight": 1236904.718,
-            "probability": 0.087338
-        },
-        {
-            "id": "ZAF",
-            "name": "South Africa",
-            "iso2": "ZA",
-            "region": "Sub-Saharan Africa ",
-            "incomeLevel": "Upper middle income",
-            "capital": "Pretoria",
-            "longitude": "28.1871",
-            "latitude": "-25.746",
-            "birthRate": 18.78,
-            "population": 63212384,
-            "gdpPerCapita": 6253.37,
-            "births": 1186813,
-            "weight": 1186812.5096,
-            "probability": 0.083801
+            "probability": 0.981074
         },
         {
             "id": "IRN",
@@ -1031,7 +375,7 @@
             "gdpPerCapita": 4771.4,
             "births": 1173473,
             "weight": 1173473.3643570002,
-            "probability": 0.082859
+            "probability": 0.930762
         },
         {
             "id": "IRQ",
@@ -1047,7 +391,7 @@
             "gdpPerCapita": 6073.61,
             "births": 1159665,
             "weight": 1159665.1326720002,
-            "probability": 0.081884
+            "probability": 0.91981
         },
         {
             "id": "NER",
@@ -1063,7 +407,7 @@
             "gdpPerCapita": 722.75,
             "births": 1095889,
             "weight": 1095889.148364,
-            "probability": 0.077381
+            "probability": 0.869225
         },
         {
             "id": "MDG",
@@ -1079,7 +423,7 @@
             "gdpPerCapita": 545,
             "births": 1001233,
             "weight": 1001233.43754,
-            "probability": 0.070697
+            "probability": 0.794147
         },
         {
             "id": "CIV",
@@ -1095,7 +439,7 @@
             "gdpPerCapita": 2709.9,
             "births": 996989,
             "weight": 996989.27146,
-            "probability": 0.070398
+            "probability": 0.79078
         },
         {
             "id": "CMR",
@@ -1111,7 +455,7 @@
             "gdpPerCapita": 1762.37,
             "births": 957380,
             "weight": 957379.5774410001,
-            "probability": 0.067601
+            "probability": 0.759363
         },
         {
             "id": "TUR",
@@ -1127,7 +471,7 @@
             "gdpPerCapita": 15473.29,
             "births": 955651,
             "weight": 955650.8079999998,
-            "probability": 0.067479
+            "probability": 0.757992
         },
         {
             "id": "MLI",
@@ -1143,7 +487,7 @@
             "gdpPerCapita": 1086.18,
             "births": 951454,
             "weight": 951454.384683,
-            "probability": 0.067182
+            "probability": 0.754664
         },
         {
             "id": "UZB",
@@ -1159,7 +503,7 @@
             "gdpPerCapita": 3161.7,
             "births": 943538,
             "weight": 943538.304755,
-            "probability": 0.066623
+            "probability": 0.748385
         },
         {
             "id": "DZA",
@@ -1175,7 +519,7 @@
             "gdpPerCapita": 5631.18,
             "births": 905973,
             "weight": 905972.797875,
-            "probability": 0.063971
+            "probability": 0.718589
         },
         {
             "id": "MMR",
@@ -1191,7 +535,7 @@
             "gdpPerCapita": 1359.26,
             "births": 903818,
             "weight": 903817.8914080001,
-            "probability": 0.063819
+            "probability": 0.71688
         },
         {
             "id": "GHA",
@@ -1207,7 +551,7 @@
             "gdpPerCapita": 2405.79,
             "births": 888960,
             "weight": 888960.0173399999,
-            "probability": 0.06277
+            "probability": 0.705095
         },
         {
             "id": "TCD",
@@ -1223,23 +567,7 @@
             "gdpPerCapita": 1016.09,
             "births": 819051,
             "weight": 819051.037344,
-            "probability": 0.057833
-        },
-        {
-            "id": "CEB",
-            "name": "Central Europe and the Baltics",
-            "iso2": "B8",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.02,
-            "population": 100175859,
-            "gdpPerCapita": 24543.3,
-            "births": 803818,
-            "weight": 803817.5623000003,
-            "probability": 0.056758
+            "probability": 0.649645
         },
         {
             "id": "SOM",
@@ -1255,7 +583,7 @@
             "gdpPerCapita": 636.98,
             "births": 788760,
             "weight": 788759.53486,
-            "probability": 0.055694
+            "probability": 0.625619
         },
         {
             "id": "JPN",
@@ -1271,7 +599,7 @@
             "gdpPerCapita": 32475.89,
             "births": 747100,
             "weight": 747099.9,
-            "probability": 0.052753
+            "probability": 0.592576
         },
         {
             "id": "BFA",
@@ -1287,7 +615,7 @@
             "gdpPerCapita": 987.32,
             "births": 728605,
             "weight": 728604.6299680001,
-            "probability": 0.051447
+            "probability": 0.577906
         },
         {
             "id": "COL",
@@ -1303,7 +631,7 @@
             "gdpPerCapita": 7913.99,
             "births": 705028,
             "weight": 705027.5231999999,
-            "probability": 0.049782
+            "probability": 0.559206
         },
         {
             "id": "DEU",
@@ -1319,7 +647,7 @@
             "gdpPerCapita": 55800.22,
             "births": 696386,
             "weight": 696385.9609000001,
-            "probability": 0.049172
+            "probability": 0.552351
         },
         {
             "id": "GBR",
@@ -1335,7 +663,7 @@
             "gdpPerCapita": 52636.79,
             "births": 686495,
             "weight": 686495.316,
-            "probability": 0.048474
+            "probability": 0.544506
         },
         {
             "id": "ZMB",
@@ -1351,7 +679,7 @@
             "gdpPerCapita": 1235.08,
             "births": 685569,
             "weight": 685569.4861650001,
-            "probability": 0.048408
+            "probability": 0.543772
         },
         {
             "id": "FRA",
@@ -1367,7 +695,7 @@
             "gdpPerCapita": 46150.49,
             "births": 676046,
             "weight": 676046.1213000001,
-            "probability": 0.047736
+            "probability": 0.536218
         },
         {
             "id": "MWI",
@@ -1383,7 +711,7 @@
             "gdpPerCapita": 508.37,
             "births": 662280,
             "weight": 662279.749642,
-            "probability": 0.046764
+            "probability": 0.525299
         },
         {
             "id": "MAR",
@@ -1399,7 +727,7 @@
             "gdpPerCapita": 3993.39,
             "births": 629837,
             "weight": 629836.546005,
-            "probability": 0.044473
+            "probability": 0.499566
         },
         {
             "id": "THA",
@@ -1415,7 +743,7 @@
             "gdpPerCapita": 7345.14,
             "births": 591187,
             "weight": 591186.576575,
-            "probability": 0.041744
+            "probability": 0.468911
         },
         {
             "id": "NPL",
@@ -1431,23 +759,7 @@
             "gdpPerCapita": 1447.31,
             "births": 574294,
             "weight": 574293.83476,
-            "probability": 0.040551
-        },
-        {
-            "id": "SAU",
-            "name": "Saudi Arabia",
-            "iso2": "SA",
-            "region": "Middle East, North Africa, Afghanistan & Pakistan",
-            "incomeLevel": "High income",
-            "capital": "Riyadh",
-            "longitude": "46.6977",
-            "latitude": "24.6748",
-            "birthRate": 16.42,
-            "population": 33702731,
-            "gdpPerCapita": 35057.23,
-            "births": 553230,
-            "weight": 553230.329365,
-            "probability": 0.039064
+            "probability": 0.455512
         },
         {
             "id": "PER",
@@ -1463,7 +775,7 @@
             "gdpPerCapita": 8452.37,
             "births": 539635,
             "weight": 539634.517448,
-            "probability": 0.038104
+            "probability": 0.428021
         },
         {
             "id": "SEN",
@@ -1479,23 +791,7 @@
             "gdpPerCapita": 1743.99,
             "births": 531896,
             "weight": 531896.4303789999,
-            "probability": 0.037557
-        },
-        {
-            "id": "SYR",
-            "name": "Syrian Arab Republic",
-            "iso2": "SY",
-            "region": "Middle East, North Africa, Afghanistan & Pakistan",
-            "incomeLevel": "Low income",
-            "capital": "Damascus",
-            "longitude": "36.3119",
-            "latitude": "33.5146",
-            "birthRate": 22.11,
-            "population": 23594623,
-            "gdpPerCapita": 0,
-            "births": 521606,
-            "weight": 521606.330661,
-            "probability": 0.036831
+            "probability": 0.421883
         },
         {
             "id": "ARG",
@@ -1511,7 +807,7 @@
             "gdpPerCapita": 13858.2,
             "births": 503837,
             "weight": 503836.86866399995,
-            "probability": 0.035576
+            "probability": 0.399627
         },
         {
             "id": "ZWE",
@@ -1527,7 +823,7 @@
             "gdpPerCapita": 2656.41,
             "births": 496924,
             "weight": 496924.39702,
-            "probability": 0.035088
+            "probability": 0.394145
         },
         {
             "id": "GIN",
@@ -1543,7 +839,7 @@
             "gdpPerCapita": 1717.02,
             "births": 487596,
             "weight": 487596.280864,
-            "probability": 0.034429
+            "probability": 0.386746
         },
         {
             "id": "BEN",
@@ -1559,7 +855,7 @@
             "gdpPerCapita": 1485.38,
             "births": 478068,
             "weight": 478067.72088599997,
-            "probability": 0.033756
+            "probability": 0.379188
         },
         {
             "id": "BDI",
@@ -1575,7 +871,7 @@
             "gdpPerCapita": 153.93,
             "births": 460883,
             "weight": 460882.71315,
-            "probability": 0.032543
+            "probability": 0.365558
         },
         {
             "id": "MYS",
@@ -1591,7 +887,7 @@
             "gdpPerCapita": 11867.26,
             "births": 435988,
             "weight": 435987.610776,
-            "probability": 0.030785
+            "probability": 0.345812
         },
         {
             "id": "VEN",
@@ -1607,7 +903,7 @@
             "gdpPerCapita": 0,
             "births": 426975,
             "weight": 426974.984298,
-            "probability": 0.030149
+            "probability": 0.338663
         },
         {
             "id": "KAZ",
@@ -1623,7 +919,7 @@
             "gdpPerCapita": 14005.35,
             "births": 409408,
             "weight": 409407.6343520001,
-            "probability": 0.028908
+            "probability": 0.324729
         },
         {
             "id": "RWA",
@@ -1639,7 +935,7 @@
             "gdpPerCapita": 999.65,
             "births": 395581,
             "weight": 395581.343908,
-            "probability": 0.027932
+            "probability": 0.313763
         },
         {
             "id": "ITA",
@@ -1655,7 +951,7 @@
             "gdpPerCapita": 40226.05,
             "births": 377558,
             "weight": 377558.24,
-            "probability": 0.026659
+            "probability": 0.299467
         },
         {
             "id": "GTM",
@@ -1671,7 +967,7 @@
             "gdpPerCapita": 6150.03,
             "births": 377160,
             "weight": 377159.75394200004,
-            "probability": 0.026631
+            "probability": 0.299151
         },
         {
             "id": "KHM",
@@ -1687,7 +983,7 @@
             "gdpPerCapita": 2627.88,
             "births": 361580,
             "weight": 361580.35776,
-            "probability": 0.025531
+            "probability": 0.286794
         },
         {
             "id": "CAN",
@@ -1703,7 +999,7 @@
             "gdpPerCapita": 54282.62,
             "births": 352735,
             "weight": 352734.65920000005,
-            "probability": 0.024907
+            "probability": 0.279778
         },
         {
             "id": "PRK",
@@ -1719,39 +1015,7 @@
             "gdpPerCapita": 0,
             "births": 342036,
             "weight": 342036.48718799994,
-            "probability": 0.024151
-        },
-        {
-            "id": "SSD",
-            "name": "South Sudan",
-            "iso2": "SS",
-            "region": "Sub-Saharan Africa ",
-            "incomeLevel": "Low income",
-            "capital": "Juba",
-            "longitude": "31.6",
-            "latitude": "4.85",
-            "birthRate": 28.59,
-            "population": 11483374,
-            "gdpPerCapita": 0,
-            "births": 328310,
-            "weight": 328309.66266000003,
-            "probability": 0.023182
-        },
-        {
-            "id": "SST",
-            "name": "Small states",
-            "iso2": "S1",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 16.26,
-            "population": 20051342,
-            "gdpPerCapita": 15291.7,
-            "births": 326080,
-            "weight": 326079.67651299917,
-            "probability": 0.023025
+            "probability": 0.271293
         },
         {
             "id": "ESP",
@@ -1767,7 +1031,7 @@
             "gdpPerCapita": 35297.01,
             "births": 323931,
             "weight": 323930.997,
-            "probability": 0.022873
+            "probability": 0.256932
         },
         {
             "id": "TGO",
@@ -1783,7 +1047,7 @@
             "gdpPerCapita": 1043.14,
             "births": 289756,
             "weight": 289755.662854,
-            "probability": 0.02046
+            "probability": 0.229825
         },
         {
             "id": "AUS",
@@ -1799,7 +1063,7 @@
             "gdpPerCapita": 64407.48,
             "births": 287850,
             "weight": 287849.9916,
-            "probability": 0.020325
+            "probability": 0.228314
         },
         {
             "id": "POL",
@@ -1815,7 +1079,7 @@
             "gdpPerCapita": 25022.67,
             "births": 271486,
             "weight": 271486.41219999996,
-            "probability": 0.01917
+            "probability": 0.215334
         },
         {
             "id": "TJK",
@@ -1831,7 +1095,7 @@
             "gdpPerCapita": 1341.2,
             "births": 271423,
             "weight": 271423.109076,
-            "probability": 0.019165
+            "probability": 0.215284
         },
         {
             "id": "ECU",
@@ -1847,7 +1111,7 @@
             "gdpPerCapita": 6874.71,
             "births": 270295,
             "weight": 270294.587739,
-            "probability": 0.019086
+            "probability": 0.214389
         },
         {
             "id": "BOL",
@@ -1863,7 +1127,7 @@
             "gdpPerCapita": 4001.21,
             "births": 260152,
             "weight": 260151.646273,
-            "probability": 0.018369
+            "probability": 0.206344
         },
         {
             "id": "SLE",
@@ -1879,7 +1143,7 @@
             "gdpPerCapita": 873.39,
             "births": 258900,
             "weight": 258900.127712,
-            "probability": 0.018281
+            "probability": 0.205351
         },
         {
             "id": "HTI",
@@ -1895,7 +1159,7 @@
             "gdpPerCapita": 2142.62,
             "births": 258350,
             "weight": 258350.23559999999,
-            "probability": 0.018242
+            "probability": 0.204915
         },
         {
             "id": "PNG",
@@ -1911,7 +1175,7 @@
             "gdpPerCapita": 3076.49,
             "births": 255336,
             "weight": 255335.66976,
-            "probability": 0.018029
+            "probability": 0.202524
         },
         {
             "id": "LKA",
@@ -1927,23 +1191,7 @@
             "gdpPerCapita": 4515.57,
             "births": 246814,
             "weight": 246814.39999999997,
-            "probability": 0.017428
-        },
-        {
-            "id": "CAF",
-            "name": "Central African Republic",
-            "iso2": "CF",
-            "region": "Sub-Saharan Africa ",
-            "incomeLevel": "Low income",
-            "capital": "Bangui",
-            "longitude": "21.6407",
-            "latitude": "5.63056",
-            "birthRate": 46.36,
-            "population": 5152421,
-            "gdpPerCapita": 516.17,
-            "births": 238856,
-            "weight": 238855.932718,
-            "probability": 0.016866
+            "probability": 0.195765
         },
         {
             "id": "JOR",
@@ -1959,7 +1207,7 @@
             "gdpPerCapita": 4618.1,
             "births": 235774,
             "weight": 235773.61914300002,
-            "probability": 0.016648
+            "probability": 0.187008
         },
         {
             "id": "HND",
@@ -1975,7 +1223,7 @@
             "gdpPerCapita": 3426.43,
             "births": 233793,
             "weight": 233792.862513,
-            "probability": 0.016508
+            "probability": 0.185437
         },
         {
             "id": "KOR",
@@ -1991,7 +1239,7 @@
             "gdpPerCapita": 0,
             "births": 232707,
             "weight": 232706.7855,
-            "probability": 0.016431
+            "probability": 0.184576
         },
         {
             "id": "UKR",
@@ -2007,7 +1255,7 @@
             "gdpPerCapita": 5389.47,
             "births": 212247,
             "weight": 212247.2025,
-            "probability": 0.014987
+            "probability": 0.168348
         },
         {
             "id": "DOM",
@@ -2023,23 +1271,7 @@
             "gdpPerCapita": 10875.66,
             "births": 203181,
             "weight": 203180.912715,
-            "probability": 0.014347
-        },
-        {
-            "id": "OSS",
-            "name": "Other small states",
-            "iso2": "S4",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 15.52,
-            "population": 12842214,
-            "gdpPerCapita": 15867.67,
-            "births": 199316,
-            "weight": 199316.0195530006,
-            "probability": 0.014074
+            "probability": 0.161157
         },
         {
             "id": "COG",
@@ -2055,7 +1287,7 @@
             "gdpPerCapita": 2482.25,
             "births": 189363,
             "weight": 189363.21889499997,
-            "probability": 0.013371
+            "probability": 0.150197
         },
         {
             "id": "ISR",
@@ -2071,7 +1303,7 @@
             "gdpPerCapita": 54176.68,
             "births": 183191,
             "weight": 183191.4,
-            "probability": 0.012935
+            "probability": 0.145302
         },
         {
             "id": "CHL",
@@ -2087,7 +1319,7 @@
             "gdpPerCapita": 16709.89,
             "births": 176202,
             "weight": 176202.138105,
-            "probability": 0.012442
+            "probability": 0.139758
         },
         {
             "id": "MRT",
@@ -2103,7 +1335,7 @@
             "gdpPerCapita": 2082.78,
             "births": 172887,
             "weight": 172887.486543,
-            "probability": 0.012208
+            "probability": 0.137129
         },
         {
             "id": "LBR",
@@ -2119,7 +1351,7 @@
             "gdpPerCapita": 846.28,
             "births": 170064,
             "weight": 170064.23976,
-            "probability": 0.012008
+            "probability": 0.13489
         },
         {
             "id": "TUN",
@@ -2135,7 +1367,7 @@
             "gdpPerCapita": 4350.37,
             "births": 167732,
             "weight": 167731.52538799998,
-            "probability": 0.011844
+            "probability": 0.133039
         },
         {
             "id": "NLD",
@@ -2151,7 +1383,7 @@
             "gdpPerCapita": 68218.73,
             "births": 164469,
             "weight": 164469.47639999999,
-            "probability": 0.011613
+            "probability": 0.130452
         },
         {
             "id": "LAO",
@@ -2167,7 +1399,7 @@
             "gdpPerCapita": 2123.98,
             "births": 163042,
             "weight": 163042.06610300002,
-            "probability": 0.011512
+            "probability": 0.12932
         },
         {
             "id": "TKM",
@@ -2183,7 +1415,7 @@
             "gdpPerCapita": 8571.61,
             "births": 160103,
             "weight": 160102.88211999997,
-            "probability": 0.011305
+            "probability": 0.126989
         },
         {
             "id": "ROU",
@@ -2199,7 +1431,7 @@
             "gdpPerCapita": 20072.41,
             "births": 152476,
             "weight": 152475.832,
-            "probability": 0.010766
+            "probability": 0.120939
         },
         {
             "id": "KGZ",
@@ -2215,23 +1447,7 @@
             "gdpPerCapita": 2419.27,
             "births": 146255,
             "weight": 146254.85,
-            "probability": 0.010327
-        },
-        {
-            "id": "PSE",
-            "name": "West Bank and Gaza",
-            "iso2": "PS",
-            "region": "Middle East, North Africa, Afghanistan & Pakistan",
-            "incomeLevel": "Lower middle income",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 27.06,
-            "population": 5165775,
-            "gdpPerCapita": 2592.31,
-            "births": 139796,
-            "weight": 139796.20305,
-            "probability": 0.009871
+            "probability": 0.116005
         },
         {
             "id": "PRY",
@@ -2247,7 +1463,7 @@
             "gdpPerCapita": 6416.1,
             "births": 136780,
             "weight": 136780.25781,
-            "probability": 0.009658
+            "probability": 0.10849
         },
         {
             "id": "NIC",
@@ -2263,7 +1479,7 @@
             "gdpPerCapita": 2847.54,
             "births": 132214,
             "weight": 132214.325488,
-            "probability": 0.009336
+            "probability": 0.104868
         },
         {
             "id": "LBY",
@@ -2279,7 +1495,7 @@
             "gdpPerCapita": 6318.4,
             "births": 124372,
             "weight": 124371.538816,
-            "probability": 0.008782
+            "probability": 0.098648
         },
         {
             "id": "AZE",
@@ -2295,7 +1511,7 @@
             "gdpPerCapita": 7283.84,
             "births": 112709,
             "weight": 112708.9338,
-            "probability": 0.007958
+            "probability": 0.089397
         },
         {
             "id": "BEL",
@@ -2311,23 +1527,7 @@
             "gdpPerCapita": 55954.61,
             "births": 110802,
             "weight": 110801.77620000001,
-            "probability": 0.007824
-        },
-        {
-            "id": "ARE",
-            "name": "United Arab Emirates",
-            "iso2": "AE",
-            "region": "Middle East, North Africa, Afghanistan & Pakistan",
-            "incomeLevel": "High income",
-            "capital": "Abu Dhabi",
-            "longitude": "54.3705",
-            "latitude": "24.4764",
-            "birthRate": 9.77,
-            "population": 10483751,
-            "gdpPerCapita": 49377.56,
-            "births": 102468,
-            "weight": 102468.18227399999,
-            "probability": 0.007235
+            "probability": 0.087884
         },
         {
             "id": "SWE",
@@ -2343,7 +1543,7 @@
             "gdpPerCapita": 57723.23,
             "births": 100098,
             "weight": 100098.004,
-            "probability": 0.007068
+            "probability": 0.079395
         },
         {
             "id": "SLV",
@@ -2359,7 +1559,7 @@
             "gdpPerCapita": 5579.66,
             "births": 99427,
             "weight": 99427.054992,
-            "probability": 0.007021
+            "probability": 0.078862
         },
         {
             "id": "ERI",
@@ -2375,7 +1575,7 @@
             "gdpPerCapita": 0,
             "births": 99059,
             "weight": 99058.81216,
-            "probability": 0.006995
+            "probability": 0.07857
         },
         {
             "id": "CUB",
@@ -2391,7 +1591,7 @@
             "gdpPerCapita": 0,
             "births": 95940,
             "weight": 95939.519286,
-            "probability": 0.006774
+            "probability": 0.076096
         },
         {
             "id": "LBN",
@@ -2407,7 +1607,7 @@
             "gdpPerCapita": 0,
             "births": 93207,
             "weight": 93207.27099199999,
-            "probability": 0.006581
+            "probability": 0.073929
         },
         {
             "id": "CZE",
@@ -2423,7 +1623,7 @@
             "gdpPerCapita": 31706.62,
             "births": 91258,
             "weight": 91257.9528,
-            "probability": 0.006444
+            "probability": 0.072383
         },
         {
             "id": "HUN",
@@ -2439,7 +1639,7 @@
             "gdpPerCapita": 23310.75,
             "births": 87289,
             "weight": 87288.89259999999,
-            "probability": 0.006163
+            "probability": 0.069235
         },
         {
             "id": "PRT",
@@ -2455,7 +1655,7 @@
             "gdpPerCapita": 28844.5,
             "births": 85683,
             "weight": 85683.20939999999,
-            "probability": 0.00605
+            "probability": 0.067961
         },
         {
             "id": "OMN",
@@ -2471,7 +1671,7 @@
             "gdpPerCapita": 20248.42,
             "births": 85065,
             "weight": 85065.03484300002,
-            "probability": 0.006006
+            "probability": 0.067471
         },
         {
             "id": "GMB",
@@ -2487,7 +1687,7 @@
             "gdpPerCapita": 908.53,
             "births": 82093,
             "weight": 82092.725505,
-            "probability": 0.005797
+            "probability": 0.065113
         },
         {
             "id": "CHE",
@@ -2503,7 +1703,7 @@
             "gdpPerCapita": 103669.87,
             "births": 79993,
             "weight": 79992.837,
-            "probability": 0.005648
+            "probability": 0.063448
         },
         {
             "id": "AUT",
@@ -2519,7 +1719,7 @@
             "gdpPerCapita": 56833.2,
             "births": 77620,
             "weight": 77619.9685,
-            "probability": 0.005481
+            "probability": 0.061566
         },
         {
             "id": "NAM",
@@ -2535,7 +1735,7 @@
             "gdpPerCapita": 4413.13,
             "births": 76715,
             "weight": 76714.52954999999,
-            "probability": 0.005417
+            "probability": 0.060848
         },
         {
             "id": "PAN",
@@ -2551,7 +1751,7 @@
             "gdpPerCapita": 19102.85,
             "births": 71469,
             "weight": 71469.44801099999,
-            "probability": 0.005046
+            "probability": 0.056687
         },
         {
             "id": "GRC",
@@ -2567,7 +1767,7 @@
             "gdpPerCapita": 24752.11,
             "births": 70758,
             "weight": 70757.9984,
-            "probability": 0.004996
+            "probability": 0.056123
         },
         {
             "id": "GAB",
@@ -2583,7 +1783,7 @@
             "gdpPerCapita": 8218.76,
             "births": 68744,
             "weight": 68744.172474,
-            "probability": 0.004854
+            "probability": 0.054526
         },
         {
             "id": "MNG",
@@ -2599,7 +1799,7 @@
             "gdpPerCapita": 6691.48,
             "births": 66142,
             "weight": 66141.755,
-            "probability": 0.00467
+            "probability": 0.052462
         },
         {
             "id": "BLR",
@@ -2615,7 +1815,7 @@
             "gdpPerCapita": 8316.65,
             "births": 65496,
             "weight": 65496.33452800001,
-            "probability": 0.004625
+            "probability": 0.05195
         },
         {
             "id": "GNB",
@@ -2631,39 +1831,7 @@
             "gdpPerCapita": 962.98,
             "births": 64680,
             "weight": 64679.843542999995,
-            "probability": 0.004567
-        },
-        {
-            "id": "CSS",
-            "name": "Caribbean small states",
-            "iso2": "S3",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 14.2,
-            "population": 4519904,
-            "gdpPerCapita": 20173.96,
-            "births": 64200,
-            "weight": 64199.94395000012,
-            "probability": 0.004533
-        },
-        {
-            "id": "PSS",
-            "name": "Pacific island small states",
-            "iso2": "S2",
-            "region": "Aggregates",
-            "incomeLevel": "Aggregates",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 23.26,
-            "population": 2689224,
-            "gdpPerCapita": 4399.41,
-            "births": 62564,
-            "weight": 62563.713009999956,
-            "probability": 0.004418
+            "probability": 0.051302
         },
         {
             "id": "BWA",
@@ -2679,7 +1847,7 @@
             "gdpPerCapita": 7695.24,
             "births": 61294,
             "weight": 61294.269972,
-            "probability": 0.004328
+            "probability": 0.048617
         },
         {
             "id": "SRB",
@@ -2695,7 +1863,7 @@
             "gdpPerCapita": 13523.72,
             "births": 60933,
             "weight": 60933.283599999995,
-            "probability": 0.004303
+            "probability": 0.04833
         },
         {
             "id": "DNK",
@@ -2711,7 +1879,7 @@
             "gdpPerCapita": 71851.76,
             "births": 57685,
             "weight": 57685.4344,
-            "probability": 0.004073
+            "probability": 0.045754
         },
         {
             "id": "BGR",
@@ -2727,7 +1895,7 @@
             "gdpPerCapita": 17412.41,
             "births": 57375,
             "weight": 57374.7044,
-            "probability": 0.004051
+            "probability": 0.045508
         },
         {
             "id": "NZL",
@@ -2743,7 +1911,7 @@
             "gdpPerCapita": 48747.01,
             "births": 56961,
             "weight": 56960.7,
-            "probability": 0.004022
+            "probability": 0.045179
         },
         {
             "id": "LSO",
@@ -2759,7 +1927,7 @@
             "gdpPerCapita": 971.81,
             "births": 55727,
             "weight": 55727.278448000005,
-            "probability": 0.003935
+            "probability": 0.044201
         },
         {
             "id": "GNQ",
@@ -2775,7 +1943,7 @@
             "gdpPerCapita": 6745.4,
             "births": 54695,
             "weight": 54694.840596,
-            "probability": 0.003862
+            "probability": 0.043382
         },
         {
             "id": "IRL",
@@ -2791,7 +1959,7 @@
             "gdpPerCapita": 107316.34,
             "births": 54668,
             "weight": 54668.280000000006,
-            "probability": 0.00386
+            "probability": 0.043361
         },
         {
             "id": "CRI",
@@ -2807,7 +1975,7 @@
             "gdpPerCapita": 18587.15,
             "births": 51969,
             "weight": 51969.138975,
-            "probability": 0.00367
+            "probability": 0.04122
         },
         {
             "id": "NOR",
@@ -2823,7 +1991,7 @@
             "gdpPerCapita": 86809.72,
             "births": 51884,
             "weight": 51884.183600000004,
-            "probability": 0.003664
+            "probability": 0.041153
         },
         {
             "id": "KWT",
@@ -2839,7 +2007,7 @@
             "gdpPerCapita": 32213.86,
             "births": 50004,
             "weight": 50004.05151424308,
-            "probability": 0.003531
+            "probability": 0.039662
         },
         {
             "id": "SVK",
@@ -2855,7 +2023,7 @@
             "gdpPerCapita": 26147.9,
             "births": 48841,
             "weight": 48840.66,
-            "probability": 0.003449
+            "probability": 0.038739
         },
         {
             "id": "SGP",
@@ -2871,7 +2039,7 @@
             "gdpPerCapita": 90674.07,
             "births": 43791,
             "weight": 43790.5952,
-            "probability": 0.003092
+            "probability": 0.034733
         },
         {
             "id": "FIN",
@@ -2887,7 +2055,7 @@
             "gdpPerCapita": 53188.62,
             "births": 43555,
             "weight": 43554.5058,
-            "probability": 0.003075
+            "probability": 0.034546
         },
         {
             "id": "GEO",
@@ -2903,7 +2071,7 @@
             "gdpPerCapita": 9193.66,
             "births": 42706,
             "weight": 42705.761602,
-            "probability": 0.003015
+            "probability": 0.033873
         },
         {
             "id": "ARM",
@@ -2919,7 +2087,7 @@
             "gdpPerCapita": 8500.61,
             "births": 36461,
             "weight": 36460.89,
-            "probability": 0.002575
+            "probability": 0.02892
         },
         {
             "id": "URY",
@@ -2935,7 +2103,7 @@
             "gdpPerCapita": 23906.51,
             "births": 33444,
             "weight": 33443.747551,
-            "probability": 0.002361
+            "probability": 0.026527
         },
         {
             "id": "HKG",
@@ -2951,7 +2119,7 @@
             "gdpPerCapita": 54107.03,
             "births": 33159,
             "weight": 33158.840000000004,
-            "probability": 0.002341
+            "probability": 0.026301
         },
         {
             "id": "JAM",
@@ -2967,7 +2135,7 @@
             "gdpPerCapita": 7019.75,
             "births": 33007,
             "weight": 33006.832678,
-            "probability": 0.002331
+            "probability": 0.02618
         },
         {
             "id": "HRV",
@@ -2983,7 +2151,7 @@
             "gdpPerCapita": 23931.45,
             "births": 32035,
             "weight": 32035.393800000005,
-            "probability": 0.002262
+            "probability": 0.025409
         },
         {
             "id": "TLS",
@@ -2999,7 +2167,7 @@
             "gdpPerCapita": 1343.15,
             "births": 30561,
             "weight": 30560.882022000005,
-            "probability": 0.002158
+            "probability": 0.02424
         },
         {
             "id": "SWZ",
@@ -3015,7 +2183,7 @@
             "gdpPerCapita": 3936.11,
             "births": 29622,
             "weight": 29621.970938000002,
-            "probability": 0.002092
+            "probability": 0.023495
         },
         {
             "id": "ALB",
@@ -3031,7 +2199,7 @@
             "gdpPerCapita": 10011.63,
             "births": 28130,
             "weight": 28129.737167999996,
-            "probability": 0.001986
+            "probability": 0.022312
         },
         {
             "id": "MDA",
@@ -3047,7 +2215,7 @@
             "gdpPerCapita": 7617.52,
             "births": 26433,
             "weight": 26433.456165000003,
-            "probability": 0.001866
+            "probability": 0.020966
         },
         {
             "id": "QAT",
@@ -3063,7 +2231,7 @@
             "gdpPerCapita": 76275.91,
             "births": 26316,
             "weight": 26315.965055999997,
-            "probability": 0.001858
+            "probability": 0.020873
         },
         {
             "id": "BIH",
@@ -3079,7 +2247,7 @@
             "gdpPerCapita": 8957.37,
             "births": 24570,
             "weight": 24569.653122,
-            "probability": 0.001735
+            "probability": 0.019488
         },
         {
             "id": "COM",
@@ -3095,7 +2263,7 @@
             "gdpPerCapita": 1784.12,
             "births": 24366,
             "weight": 24366.138711,
-            "probability": 0.00172
+            "probability": 0.019326
         },
         {
             "id": "DJI",
@@ -3111,7 +2279,7 @@
             "gdpPerCapita": 3496.47,
             "births": 23945,
             "weight": 23945.493935999995,
-            "probability": 0.001691
+            "probability": 0.018993
         },
         {
             "id": "SLB",
@@ -3127,7 +2295,7 @@
             "gdpPerCapita": 2149.38,
             "births": 21548,
             "weight": 21548.134675,
-            "probability": 0.001522
+            "probability": 0.017091
         },
         {
             "id": "LTU",
@@ -3143,7 +2311,7 @@
             "gdpPerCapita": 29386.29,
             "births": 20675,
             "weight": 20675.412,
-            "probability": 0.00146
+            "probability": 0.016399
         },
         {
             "id": "XKX",
@@ -3159,7 +2327,7 @@
             "gdpPerCapita": 7299.43,
             "births": 20305,
             "weight": 20304.754756000002,
-            "probability": 0.001434
+            "probability": 0.016105
         },
         {
             "id": "BHR",
@@ -3175,7 +2343,7 @@
             "gdpPerCapita": 30048.22,
             "births": 19650,
             "weight": 19650.15514,
-            "probability": 0.001387
+            "probability": 0.015586
         },
         {
             "id": "PRI",
@@ -3191,7 +2359,7 @@
             "gdpPerCapita": 39285.02,
             "births": 18582,
             "weight": 18581.993599999998,
-            "probability": 0.001312
+            "probability": 0.014739
         },
         {
             "id": "SVN",
@@ -3207,23 +2375,7 @@
             "gdpPerCapita": 34089.35,
             "births": 16964,
             "weight": 16963.688,
-            "probability": 0.001198
-        },
-        {
-            "id": "MKD",
-            "name": "North Macedonia",
-            "iso2": "MK",
-            "region": "Europe & Central Asia",
-            "incomeLevel": "Upper middle income",
-            "capital": "Skopje",
-            "longitude": "21.4361",
-            "latitude": "42.0024",
-            "birthRate": 9.2,
-            "population": 1827816,
-            "gdpPerCapita": 9310.03,
-            "births": 16816,
-            "weight": 16815.907199999998,
-            "probability": 0.001187
+            "probability": 0.013455
         },
         {
             "id": "GUY",
@@ -3239,7 +2391,7 @@
             "gdpPerCapita": 29883.63,
             "births": 16764,
             "weight": 16764.223310999998,
-            "probability": 0.001184
+            "probability": 0.013297
         },
         {
             "id": "FJI",
@@ -3255,23 +2407,7 @@
             "gdpPerCapita": 6288.4,
             "births": 16631,
             "weight": 16630.913419999997,
-            "probability": 0.001174
-        },
-        {
-            "id": "TTO",
-            "name": "Trinidad and Tobago",
-            "iso2": "TT",
-            "region": "Latin America & Caribbean ",
-            "incomeLevel": "High income",
-            "capital": "Port-of-Spain",
-            "longitude": "-61.4789",
-            "latitude": "10.6596",
-            "birthRate": 10.71,
-            "population": 1367510,
-            "gdpPerCapita": 19314.72,
-            "births": 14643,
-            "weight": 14643.29708,
-            "probability": 0.001034
+            "probability": 0.013191
         },
         {
             "id": "CYP",
@@ -3287,7 +2423,7 @@
             "gdpPerCapita": 38654.17,
             "births": 14524,
             "weight": 14524.395824,
-            "probability": 0.001026
+            "probability": 0.01152
         },
         {
             "id": "LVA",
@@ -3303,7 +2439,7 @@
             "gdpPerCapita": 23367.6,
             "births": 14456,
             "weight": 14456.3265,
-            "probability": 0.001021
+            "probability": 0.011466
         },
         {
             "id": "MUS",
@@ -3319,7 +2455,7 @@
             "gdpPerCapita": 11871.73,
             "births": 12863,
             "weight": 12862.618199999999,
-            "probability": 0.000908
+            "probability": 0.010202
         },
         {
             "id": "EST",
@@ -3335,7 +2471,7 @@
             "gdpPerCapita": 31170.09,
             "births": 10962,
             "weight": 10962.288,
-            "probability": 0.000774
+            "probability": 0.008695
         },
         {
             "id": "SUR",
@@ -3351,7 +2487,7 @@
             "gdpPerCapita": 7430.7,
             "births": 10878,
             "weight": 10878.470028,
-            "probability": 0.000768
+            "probability": 0.008628
         },
         {
             "id": "BTN",
@@ -3367,7 +2503,7 @@
             "gdpPerCapita": 0,
             "births": 9958,
             "weight": 9957.993255000001,
-            "probability": 0.000703
+            "probability": 0.007898
         },
         {
             "id": "VUT",
@@ -3383,7 +2519,7 @@
             "gdpPerCapita": 3542.81,
             "births": 8987,
             "weight": 8987.472450000001,
-            "probability": 0.000635
+            "probability": 0.007129
         },
         {
             "id": "BLZ",
@@ -3399,7 +2535,7 @@
             "gdpPerCapita": 8429.68,
             "births": 7410,
             "weight": 7410.185649999999,
-            "probability": 0.000523
+            "probability": 0.005878
         },
         {
             "id": "MNE",
@@ -3415,7 +2551,7 @@
             "gdpPerCapita": 12935.45,
             "births": 6984,
             "weight": 6983.5248,
-            "probability": 0.000493
+            "probability": 0.005539
         },
         {
             "id": "STP",
@@ -3431,7 +2567,7 @@
             "gdpPerCapita": 3244.83,
             "births": 6507,
             "weight": 6507.0991349999995,
-            "probability": 0.000459
+            "probability": 0.005161
         },
         {
             "id": "CPV",
@@ -3447,7 +2583,7 @@
             "gdpPerCapita": 5272.85,
             "births": 6440,
             "weight": 6440.34123,
-            "probability": 0.000455
+            "probability": 0.005108
         },
         {
             "id": "LUX",
@@ -3463,7 +2599,7 @@
             "gdpPerCapita": 137516.59,
             "births": 6331,
             "weight": 6331.085,
-            "probability": 0.000447
+            "probability": 0.005022
         },
         {
             "id": "BRN",
@@ -3479,7 +2615,7 @@
             "gdpPerCapita": 33417.84,
             "births": 6237,
             "weight": 6237.11691,
-            "probability": 0.00044
+            "probability": 0.004947
         },
         {
             "id": "MDV",
@@ -3495,7 +2631,7 @@
             "gdpPerCapita": 13215.54,
             "births": 5795,
             "weight": 5795.401892,
-            "probability": 0.000409
+            "probability": 0.004597
         },
         {
             "id": "WSM",
@@ -3511,7 +2647,7 @@
             "gdpPerCapita": 4898.77,
             "births": 5503,
             "weight": 5503.456863,
-            "probability": 0.000389
+            "probability": 0.004365
         },
         {
             "id": "MLT",
@@ -3527,7 +2663,7 @@
             "gdpPerCapita": 42347.31,
             "births": 4477,
             "weight": 4477.2507000000005,
-            "probability": 0.000316
+            "probability": 0.003551
         },
         {
             "id": "BHS",
@@ -3543,7 +2679,7 @@
             "gdpPerCapita": 39455.45,
             "births": 4335,
             "weight": 4334.72288,
-            "probability": 0.000306
+            "probability": 0.003438
         },
         {
             "id": "ISL",
@@ -3559,7 +2695,7 @@
             "gdpPerCapita": 82703.86,
             "births": 4327,
             "weight": 4326.839,
-            "probability": 0.000306
+            "probability": 0.003432
         },
         {
             "id": "NCL",
@@ -3575,7 +2711,7 @@
             "gdpPerCapita": 0,
             "births": 4134,
             "weight": 4134.12594,
-            "probability": 0.000292
+            "probability": 0.003279
         },
         {
             "id": "MAC",
@@ -3591,7 +2727,7 @@
             "gdpPerCapita": 73046.89,
             "births": 3733,
             "weight": 3733.4,
-            "probability": 0.000264
+            "probability": 0.002961
         },
         {
             "id": "KIR",
@@ -3607,7 +2743,7 @@
             "gdpPerCapita": 2288.63,
             "births": 3421,
             "weight": 3420.9968899999994,
-            "probability": 0.000242
+            "probability": 0.002713
         },
         {
             "id": "BRB",
@@ -3623,7 +2759,7 @@
             "gdpPerCapita": 25365.79,
             "births": 3155,
             "weight": 3154.540128,
-            "probability": 0.000223
+            "probability": 0.002502
         },
         {
             "id": "PYF",
@@ -3639,7 +2775,7 @@
             "gdpPerCapita": 0,
             "births": 3066,
             "weight": 3066.154026,
-            "probability": 0.000217
+            "probability": 0.002432
         },
         {
             "id": "GUM",
@@ -3655,7 +2791,7 @@
             "gdpPerCapita": 0,
             "births": 2941,
             "weight": 2940.8289720000002,
-            "probability": 0.000208
+            "probability": 0.002333
         },
         {
             "id": "FSM",
@@ -3671,7 +2807,7 @@
             "gdpPerCapita": 4166,
             "births": 2512,
             "weight": 2511.5363700000003,
-            "probability": 0.000177
+            "probability": 0.001992
         },
         {
             "id": "TON",
@@ -3687,7 +2823,7 @@
             "gdpPerCapita": 0,
             "births": 2418,
             "weight": 2417.968849,
-            "probability": 0.000171
+            "probability": 0.001918
         },
         {
             "id": "LCA",
@@ -3703,7 +2839,7 @@
             "gdpPerCapita": 14181.63,
             "births": 2019,
             "weight": 2019.10767,
-            "probability": 0.000143
+            "probability": 0.001601
         },
         {
             "id": "SYC",
@@ -3719,23 +2855,7 @@
             "gdpPerCapita": 17858.82,
             "births": 1557,
             "weight": 1557.049,
-            "probability": 0.00011
-        },
-        {
-            "id": "CHI",
-            "name": "Channel Islands",
-            "iso2": "JG",
-            "region": "Europe & Central Asia",
-            "incomeLevel": "High income",
-            "capital": "",
-            "longitude": "",
-            "latitude": "",
-            "birthRate": 8.2,
-            "population": 167691,
-            "gdpPerCapita": 0,
-            "births": 1375,
-            "weight": 1375.0662,
-            "probability": 9.7e-5
+            "probability": 0.001235
         },
         {
             "id": "GRD",
@@ -3751,7 +2871,7 @@
             "gdpPerCapita": 11871.61,
             "births": 1371,
             "weight": 1371.135591,
-            "probability": 9.7e-5
+            "probability": 0.001088
         },
         {
             "id": "VCT",
@@ -3767,7 +2887,7 @@
             "gdpPerCapita": 11501.23,
             "births": 1232,
             "weight": 1231.885034,
-            "probability": 8.7e-5
+            "probability": 0.000977
         },
         {
             "id": "VIR",
@@ -3783,7 +2903,7 @@
             "gdpPerCapita": 0,
             "births": 1196,
             "weight": 1196.0538000000001,
-            "probability": 8.4e-5
+            "probability": 0.000949
         },
         {
             "id": "CUW",
@@ -3799,7 +2919,7 @@
             "gdpPerCapita": 0,
             "births": 1169,
             "weight": 1168.5,
-            "probability": 8.3e-5
+            "probability": 0.000927
         },
         {
             "id": "ATG",
@@ -3815,7 +2935,7 @@
             "gdpPerCapita": 23725.79,
             "births": 1106,
             "weight": 1105.607968,
-            "probability": 7.8e-5
+            "probability": 0.000877
         },
         {
             "id": "CYM",
@@ -3831,7 +2951,7 @@
             "gdpPerCapita": 0,
             "births": 865,
             "weight": 864.623844,
-            "probability": 6.1e-5
+            "probability": 0.000686
         },
         {
             "id": "ABW",
@@ -3847,7 +2967,7 @@
             "gdpPerCapita": 0,
             "births": 856,
             "weight": 855.973307,
-            "probability": 6.0e-5
+            "probability": 0.000679
         },
         {
             "id": "MHL",
@@ -3863,7 +2983,7 @@
             "gdpPerCapita": 7466.65,
             "births": 821,
             "weight": 820.686299,
-            "probability": 5.8e-5
+            "probability": 0.000651
         },
         {
             "id": "DMA",
@@ -3879,23 +2999,7 @@
             "gdpPerCapita": 10405.28,
             "births": 738,
             "weight": 737.5959,
-            "probability": 5.2e-5
-        },
-        {
-            "id": "ASM",
-            "name": "American Samoa",
-            "iso2": "AS",
-            "region": "East Asia & Pacific",
-            "incomeLevel": "High income",
-            "capital": "Pago Pago",
-            "longitude": "-170.691",
-            "latitude": "-14.2846",
-            "birthRate": 15.39,
-            "population": 47521,
-            "gdpPerCapita": 0,
-            "births": 731,
-            "weight": 731.253148,
-            "probability": 5.2e-5
+            "probability": 0.000585
         },
         {
             "id": "GRL",
@@ -3911,7 +3015,7 @@
             "gdpPerCapita": 0,
             "births": 716,
             "weight": 716.499,
-            "probability": 5.1e-5
+            "probability": 0.000568
         },
         {
             "id": "IMN",
@@ -3927,23 +3031,7 @@
             "gdpPerCapita": 0,
             "births": 702,
             "weight": 701.9361,
-            "probability": 5.0e-5
-        },
-        {
-            "id": "MNP",
-            "name": "Northern Mariana Islands",
-            "iso2": "MP",
-            "region": "East Asia & Pacific",
-            "incomeLevel": "High income",
-            "capital": "Saipan",
-            "longitude": "145.765",
-            "latitude": "15.1935",
-            "birthRate": 12.92,
-            "population": 45143,
-            "gdpPerCapita": 0,
-            "births": 583,
-            "weight": 583.157274,
-            "probability": 4.1e-5
+            "probability": 0.000557
         },
         {
             "id": "FRO",
@@ -3959,7 +3047,7 @@
             "gdpPerCapita": 0,
             "births": 577,
             "weight": 577.0534,
-            "probability": 4.1e-5
+            "probability": 0.000458
         },
         {
             "id": "AND",
@@ -3975,7 +3063,7 @@
             "gdpPerCapita": 49303.67,
             "births": 555,
             "weight": 554.591304,
-            "probability": 3.9e-5
+            "probability": 0.00044
         },
         {
             "id": "KNA",
@@ -3991,7 +3079,7 @@
             "gdpPerCapita": 22771.42,
             "births": 549,
             "weight": 549.1727099999999,
-            "probability": 3.9e-5
+            "probability": 0.000436
         },
         {
             "id": "BMU",
@@ -4007,7 +3095,7 @@
             "gdpPerCapita": 138934.96,
             "births": 521,
             "weight": 520.5601079999999,
-            "probability": 3.7e-5
+            "probability": 0.000413
         },
         {
             "id": "TCA",
@@ -4023,7 +3111,7 @@
             "gdpPerCapita": 37506.78,
             "births": 496,
             "weight": 496.0741239999999,
-            "probability": 3.5e-5
+            "probability": 0.000393
         },
         {
             "id": "MAF",
@@ -4039,7 +3127,7 @@
             "gdpPerCapita": 0,
             "births": 470,
             "weight": 469.653535,
-            "probability": 3.3e-5
+            "probability": 0.000373
         },
         {
             "id": "GIB",
@@ -4055,7 +3143,7 @@
             "gdpPerCapita": 0,
             "births": 464,
             "weight": 464.34497000000005,
-            "probability": 3.3e-5
+            "probability": 0.000368
         },
         {
             "id": "SXM",
@@ -4071,7 +3159,7 @@
             "gdpPerCapita": 40027.92,
             "births": 390,
             "weight": 390.127374,
-            "probability": 2.8e-5
+            "probability": 0.000309
         },
         {
             "id": "MCO",
@@ -4087,7 +3175,7 @@
             "gdpPerCapita": 0,
             "births": 368,
             "weight": 367.78359600000005,
-            "probability": 2.6e-5
+            "probability": 0.000292
         },
         {
             "id": "LIE",
@@ -4103,7 +3191,7 @@
             "gdpPerCapita": 0,
             "births": 363,
             "weight": 362.635,
-            "probability": 2.6e-5
+            "probability": 0.000288
         },
         {
             "id": "VGB",
@@ -4119,7 +3207,7 @@
             "gdpPerCapita": 0,
             "births": 325,
             "weight": 324.82302000000004,
-            "probability": 2.3e-5
+            "probability": 0.000258
         },
         {
             "id": "NRU",
@@ -4135,7 +3223,7 @@
             "gdpPerCapita": 13421.83,
             "births": 303,
             "weight": 302.871875,
-            "probability": 2.1e-5
+            "probability": 0.00024
         },
         {
             "id": "TUV",
@@ -4151,7 +3239,7 @@
             "gdpPerCapita": 0,
             "births": 227,
             "weight": 226.50419999999997,
-            "probability": 1.6e-5
+            "probability": 0.00018
         },
         {
             "id": "PLW",
@@ -4167,7 +3255,7 @@
             "gdpPerCapita": 0,
             "births": 193,
             "weight": 193.171119,
-            "probability": 1.4e-5
+            "probability": 0.000153
         },
         {
             "id": "SMR",
@@ -4183,7 +3271,7 @@
             "gdpPerCapita": 0,
             "births": 190,
             "weight": 189.616,
-            "probability": 1.3e-5
+            "probability": 0.00015
         }
     ]
 }

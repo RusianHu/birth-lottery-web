@@ -66,25 +66,21 @@ function parseWorldBankData($jsonData) {
 
 try {
     // 1. 获取2023年出生率数据
-    echo "<!-- Fetching birth rate data... -->\n";
     $birthRateUrl = 'https://api.worldbank.org/v2/country/all/indicator/SP.DYN.CBRT.IN?format=json&date=2023:2023&per_page=20000';
     $birthRateResponse = fetchFromAPI($birthRateUrl);
     $birthRateData = parseWorldBankData($birthRateResponse);
-    
+
     // 2. 获取2023年人口数据
-    echo "<!-- Fetching population data... -->\n";
     $populationUrl = 'https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&date=2023:2023&per_page=20000';
     $populationResponse = fetchFromAPI($populationUrl);
     $populationData = parseWorldBankData($populationResponse);
-    
+
     // 3. 获取2024年人均GDP数据
-    echo "<!-- Fetching GDP per capita data... -->\n";
     $gdpUrl = 'https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?format=json&date=2024:2024&per_page=20000';
     $gdpResponse = fetchFromAPI($gdpUrl);
     $gdpData = parseWorldBankData($gdpResponse);
-    
+
     // 4. 获取国家元数据
-    echo "<!-- Fetching country metadata... -->\n";
     $countryUrl = 'https://api.worldbank.org/v2/country?format=json&per_page=400';
     $countryResponse = fetchFromAPI($countryUrl);
     $countryMetadata = parseWorldBankData($countryResponse);
@@ -161,6 +157,27 @@ try {
             continue;
         }
 
+        // 跳过包含特定关键词的聚合数据
+        $aggregateKeywords = [
+            'income', 'dividend', 'World', 'IBRD', 'IDA', 'OECD',
+            'Euro', 'European', 'Arab', 'small states', 'Saharan',
+            'Asia', 'Pacific', 'America', 'Caribbean', 'Africa',
+            'Europe', 'Central', 'North', 'South', 'East', 'West',
+            'Baltics', 'Channel', 'Fragile', 'Heavily', 'Least'
+        ];
+
+        $isAggregate = false;
+        foreach ($aggregateKeywords as $keyword) {
+            if (stripos($countryMap[$countryId]['name'], $keyword) !== false) {
+                $isAggregate = true;
+                break;
+            }
+        }
+
+        if ($isAggregate) {
+            continue;
+        }
+
         // 计算出生数（权重）
         $births = ($birthRate * $population) / 1000;
 
@@ -197,7 +214,7 @@ try {
     usort($mergedData, function($a, $b) {
         return $b['births'] - $a['births'];
     });
-    
+
     // 准备最终输出
     $output = [
         'success' => true,

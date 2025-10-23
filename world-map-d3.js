@@ -28,6 +28,12 @@ export class WorldMapController {
         this.path = null;
         this.zoom = null;
 
+        // 中国-台湾联动配置
+        this.unifiedRegions = {
+            'CN': ['CN', 'TW'],  // 中国和台湾作为统一区域
+            'TW': ['CN', 'TW']   // 台湾也映射到同一组
+        };
+
         this.init();
     }
 
@@ -112,6 +118,7 @@ export class WorldMapController {
             .on('click', (event, d) => this.handleCountryClick(event, d));
 
         // 收集国家信息
+        const uniqueCountries = new Map();
         countries.features.forEach((feature, i) => {
             const name = feature.properties.name || feature.properties.admin;
             const numId = feature.id;
@@ -128,13 +135,21 @@ export class WorldMapController {
                 feature: feature
             };
 
-            // 使用多个键来存储,方便查找
-            if (iso2) this.countries.set(iso2, country);
-            if (numId) this.countries.set(String(numId), country);
-            if (name) this.countries.set(name, country);
+            // 使用ISO2作为主键（如果有的话）
+            const primaryKey = iso2 || String(numId) || name;
+
+            // 避免重复
+            if (!uniqueCountries.has(primaryKey)) {
+                uniqueCountries.set(primaryKey, country);
+
+                // 使用多个键来存储,方便查找
+                if (iso2) this.countries.set(iso2, country);
+                if (numId) this.countries.set(String(numId), country);
+                if (name) this.countries.set(name, country);
+            }
         });
 
-        console.log(`已加载 ${this.countries.size} 个国家/地区`);
+        console.log(`已加载 ${uniqueCountries.size} 个国家/地区`);
     }
 
     /**
@@ -183,8 +198,18 @@ export class WorldMapController {
         const country = this.countries.get(iso);
 
         if (country && country.element) {
+            // 高亮当前国家
             d3.select(country.element)
                 .style('fill', '#ffd700');
+
+            // 同时高亮统一区域的其他国家
+            const relatedCountries = this.getUnifiedRegionCountries(country.iso2);
+            relatedCountries.forEach(c => {
+                if (c !== country && c.element) {
+                    d3.select(c.element)
+                        .style('fill', '#ffd700');
+                }
+            });
         }
 
         if (this.tooltip && country) {
@@ -217,7 +242,16 @@ export class WorldMapController {
         const country = this.countries.get(iso);
 
         if (country && country.element && country !== this.selectedCountry) {
+            // 恢复当前国家的颜色
             this.updateCountryColor(country);
+
+            // 同时恢复统一区域的其他国家的颜色
+            const relatedCountries = this.getUnifiedRegionCountries(country.iso2);
+            relatedCountries.forEach(c => {
+                if (c !== country && c.element && c !== this.selectedCountry) {
+                    this.updateCountryColor(c);
+                }
+            });
         }
 
         if (this.tooltip) {
@@ -246,18 +280,61 @@ export class WorldMapController {
         // 处理数据格式:可能是数组或包含countries数组的对象
         const countries = Array.isArray(data) ? data : (data.countries || []);
 
+        // 计算数据范围用于颜色映射
+        const validCountries = countries.filter(c => c.iso2 && c.iso2.length === 2);
+        const probabilities = validCountries.map(c => c.probability || 0);
+        const gdps = validCountries.map(c => c.gdpPerCapita || 0);
+        const birthRates = validCountries.map(c => c.birthRate || 0);
+
+        this.dataRanges = {
+            probability: {
+                min: Math.min(...probabilities),
+                max: Math.max(...probabilities)
+            },
+            gdp: {
+                min: Math.min(...gdps),
+                max: Math.max(...gdps)
+            },
+            birthRate: {
+                min: Math.min(...birthRates),
+                max: Math.max(...birthRates)
+            }
+        };
+
+        console.log('数据范围:', this.dataRanges);
+
+        let matchedCount = 0;
         countries.forEach(item => {
-            // 尝试多种ISO代码
+            // 尝试多种ISO代码和名称
             const iso2 = item.iso2 || item.iso || item.code;
             const iso3 = item.iso3;
             const name = item.name;
 
-            let country = this.countries.get(iso2);
+            let country = null;
+
+            // 首先尝试通过ISO2代码查找
+            if (iso2) {
+                country = this.countries.get(iso2);
+            }
+
+            // 尝试通过ISO3代码查找
             if (!country && iso3) {
                 country = this.countries.get(iso3);
             }
+
+            // 尝试通过名称查找（需要处理名称变体）
             if (!country && name) {
+                // 直接匹配
                 country = this.countries.get(name);
+
+                // 尝试常见的名称变体
+                if (!country) {
+                    const nameVariants = this.getNameVariants(name);
+                    for (const variant of nameVariants) {
+                        country = this.countries.get(variant);
+                        if (country) break;
+                    }
+                }
             }
 
             if (country) {
@@ -267,8 +344,58 @@ export class WorldMapController {
                     birthRate: item.birthRate || item.birth_rate || 0
                 };
                 this.updateCountryColor(country);
+                matchedCount++;
+            } else {
+                // 调试：记录未匹配的国家
+                if (iso2 && iso2.length === 2) {
+                    console.log('未匹配:', name, iso2);
+                }
             }
         });
+
+        console.log(`成功匹配 ${matchedCount} 个国家数据`);
+    }
+
+    /**
+     * 获取国家名称的变体
+     */
+    getNameVariants(name) {
+        const variants = [name];
+
+        // 常见的名称映射
+        const nameMap = {
+            'United States': ['United States of America', 'USA'],
+            'United Kingdom': ['United Kingdom of Great Britain and Northern Ireland'],
+            'Russia': ['Russian Federation'],
+            'South Korea': ['Korea, Republic of', 'Republic of Korea'],
+            'North Korea': ['Korea, Democratic People\'s Republic of'],
+            'Vietnam': ['Viet Nam'],
+            'Iran': ['Iran, Islamic Republic of'],
+            'Syria': ['Syrian Arab Republic'],
+            'Venezuela': ['Venezuela, Bolivarian Republic of'],
+            'Bolivia': ['Bolivia, Plurinational State of'],
+            'Tanzania': ['United Republic of Tanzania'],
+            'Congo, Rep.': ['Republic of the Congo', 'Congo'],
+            'Congo, Dem. Rep.': ['Democratic Republic of the Congo'],
+            'Czechia': ['Czech Republic'],
+            'Turkiye': ['Turkey'],
+            'Lao PDR': ['Laos', 'Lao People\'s Democratic Republic']
+        };
+
+        // 添加映射的变体
+        if (nameMap[name]) {
+            variants.push(...nameMap[name]);
+        }
+
+        // 反向查找
+        for (const [key, values] of Object.entries(nameMap)) {
+            if (values.includes(name)) {
+                variants.push(key);
+                variants.push(...values);
+            }
+        }
+
+        return [...new Set(variants)];
     }
 
     /**
@@ -280,29 +407,101 @@ export class WorldMapController {
         let color = '#e0e0e0';
         const data = country.data;
 
-        if (this.options.colorScheme === 'probability') {
-            const intensity = Math.min(data.probability * 1000, 1);
-            const r = Math.floor(255 - intensity * 100);
-            const g = Math.floor(200 - intensity * 50);
-            const b = Math.floor(255 - intensity * 100);
-            color = `rgb(${r}, ${g}, ${b})`;
-        } else if (this.options.colorScheme === 'gdp') {
-            const maxGDP = 100000;
-            const intensity = Math.min(data.gdpPerCapita / maxGDP, 1);
-            const r = Math.floor(100 + intensity * 155);
-            const g = Math.floor(200 + intensity * 55);
-            const b = Math.floor(100 + intensity * 100);
-            color = `rgb(${r}, ${g}, ${b})`;
-        } else if (this.options.colorScheme === 'birthrate') {
-            const maxRate = 50;
-            const intensity = Math.min(data.birthRate / maxRate, 1);
-            const r = Math.floor(255 - intensity * 100);
-            const g = Math.floor(150 + intensity * 50);
-            const b = Math.floor(150 - intensity * 50);
-            color = `rgb(${r}, ${g}, ${b})`;
+        // 如果没有数据范围，使用默认颜色
+        if (!this.dataRanges) {
+            d3.select(country.element).style('fill', color);
+            return;
         }
 
+        let value, range;
+        switch (this.options.colorScheme) {
+            case 'gdp':
+                value = data.gdpPerCapita || 0;
+                range = this.dataRanges.gdp;
+                break;
+            case 'birthrate':
+                value = data.birthRate || 0;
+                range = this.dataRanges.birthRate;
+                break;
+            case 'probability':
+            default:
+                value = data.probability || 0;
+                range = this.dataRanges.probability;
+        }
+
+        color = this.getColorForValue(value, range);
         d3.select(country.element).style('fill', color);
+
+        // 如果是统一区域（如中国-台湾），同步更新关联区域的颜色
+        this.syncUnifiedRegionColors(country.iso2, color);
+    }
+
+    /**
+     * 同步统一区域的颜色
+     */
+    syncUnifiedRegionColors(iso2, color) {
+        if (!iso2 || !this.unifiedRegions[iso2]) return;
+
+        const relatedIsos = this.unifiedRegions[iso2];
+        relatedIsos.forEach(relatedIso => {
+            if (relatedIso !== iso2) {
+                const relatedCountry = this.countries.get(relatedIso);
+                if (relatedCountry && relatedCountry.element) {
+                    d3.select(relatedCountry.element).style('fill', color);
+                }
+            }
+        });
+    }
+
+    /**
+     * 根据数值获取颜色（使用渐变色方案）
+     */
+    getColorForValue(value, range) {
+        if (!range || range.max === range.min) return '#e8f4f8';
+
+        // 归一化到 0-1
+        const normalized = Math.max(0, Math.min(1, (value - range.min) / (range.max - range.min)));
+
+        // 使用渐变色方案: 浅蓝 -> 浅粉 -> 粉红 -> 深红
+        if (normalized < 0.33) {
+            // 浅蓝到浅粉
+            const t = normalized / 0.33;
+            return this.interpolateColor('#e8f4f8', '#ffb3c6', t);
+        } else if (normalized < 0.67) {
+            // 浅粉到粉红
+            const t = (normalized - 0.33) / 0.34;
+            return this.interpolateColor('#ffb3c6', '#ff6b9d', t);
+        } else {
+            // 粉红到深红
+            const t = (normalized - 0.67) / 0.33;
+            return this.interpolateColor('#ff6b9d', '#c44569', t);
+        }
+    }
+
+    /**
+     * 颜色插值
+     */
+    interpolateColor(color1, color2, t) {
+        const c1 = this.hexToRgb(color1);
+        const c2 = this.hexToRgb(color2);
+
+        const r = Math.round(c1.r + (c2.r - c1.r) * t);
+        const g = Math.round(c1.g + (c2.g - c1.g) * t);
+        const b = Math.round(c1.b + (c2.b - c1.b) * t);
+
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    /**
+     * 十六进制转RGB
+     */
+    hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : { r: 0, g: 0, b: 0 };
     }
 
     /**
@@ -343,12 +542,35 @@ export class WorldMapController {
             return;
         }
 
-        // 计算国家的中心点和边界
-        const bounds = this.path.bounds(country.feature);
-        const dx = bounds[1][0] - bounds[0][0];
-        const dy = bounds[1][1] - bounds[0][1];
-        const x = (bounds[0][0] + bounds[1][0]) / 2;
-        const y = (bounds[0][1] + bounds[1][1]) / 2;
+        // 获取统一区域的所有国家（如中国-台湾）
+        const relatedCountries = this.getUnifiedRegionCountries(country.iso2);
+
+        // 计算统一区域的合并边界
+        let combinedBounds = null;
+        relatedCountries.forEach(c => {
+            if (c.feature) {
+                const bounds = this.path.bounds(c.feature);
+                if (!combinedBounds) {
+                    combinedBounds = [[...bounds[0]], [...bounds[1]]];
+                } else {
+                    combinedBounds[0][0] = Math.min(combinedBounds[0][0], bounds[0][0]);
+                    combinedBounds[0][1] = Math.min(combinedBounds[0][1], bounds[0][1]);
+                    combinedBounds[1][0] = Math.max(combinedBounds[1][0], bounds[1][0]);
+                    combinedBounds[1][1] = Math.max(combinedBounds[1][1], bounds[1][1]);
+                }
+            }
+        });
+
+        if (!combinedBounds) {
+            console.warn(`无法计算国家 ${iso} 的边界`);
+            return;
+        }
+
+        // 计算合并区域的中心点和缩放
+        const dx = combinedBounds[1][0] - combinedBounds[0][0];
+        const dy = combinedBounds[1][1] - combinedBounds[0][1];
+        const x = (combinedBounds[0][0] + combinedBounds[1][0]) / 2;
+        const y = (combinedBounds[0][1] + combinedBounds[1][1]) / 2;
         const scale = Math.min(8, 0.9 / Math.max(dx / 960, dy / 500));
         const translate = [960 / 2 - scale * x, 500 / 2 - scale * y];
 
@@ -360,12 +582,41 @@ export class WorldMapController {
                 d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
             );
 
-        // 高亮国家
+        // 高亮所有相关国家
         this.selectedCountry = country;
-        d3.select(country.element)
-            .style('fill', '#ff6b6b')
-            .style('stroke', '#ff0000')
-            .style('stroke-width', '2');
+        relatedCountries.forEach(c => {
+            if (c.element) {
+                d3.select(c.element)
+                    .style('fill', '#ff6b6b')
+                    .style('stroke', '#ff0000')
+                    .style('stroke-width', '2');
+            }
+        });
+    }
+
+    /**
+     * 获取统一区域的所有国家
+     */
+    getUnifiedRegionCountries(iso2) {
+        const countries = [];
+
+        if (iso2 && this.unifiedRegions[iso2]) {
+            // 如果是统一区域，返回所有相关国家
+            this.unifiedRegions[iso2].forEach(relatedIso => {
+                const country = this.countries.get(relatedIso);
+                if (country) {
+                    countries.push(country);
+                }
+            });
+        } else {
+            // 否则只返回当前国家
+            const country = this.countries.get(iso2);
+            if (country) {
+                countries.push(country);
+            }
+        }
+
+        return countries;
     }
 
     /**
@@ -377,10 +628,16 @@ export class WorldMapController {
             .call(this.zoom.transform, d3.zoomIdentity);
 
         if (this.selectedCountry) {
-            this.updateCountryColor(this.selectedCountry);
-            d3.select(this.selectedCountry.element)
-                .style('stroke', '#ffffff')
-                .style('stroke-width', '0.5');
+            // 重置所有相关国家的颜色和边框
+            const relatedCountries = this.getUnifiedRegionCountries(this.selectedCountry.iso2);
+            relatedCountries.forEach(country => {
+                this.updateCountryColor(country);
+                if (country.element) {
+                    d3.select(country.element)
+                        .style('stroke', '#ffffff')
+                        .style('stroke-width', '0.5');
+                }
+            });
             this.selectedCountry = null;
         }
     }
